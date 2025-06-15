@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaInicioAdmin.xhtml">
+
+            <ui:define name="content">
+
+                <h:form prependId="false">
+
+                    <h:head>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                        <link rel="stylesheet" type="text/css" href="../../resources/css/stylesAdmin/styleVerEntrenadoresAdmin.css"/>
+                    </h:head>
+
+                    <!-- SECCION INICIO -->
+                    <section  class="inicio"> <!-- Sección de inicio de la página -->
+                        <main  class="contenido-seccion"> <!-- Contenido principal de la sección de inicio -->
+                            <div class="container">
+
+                                <!-- Botone de la izquierda -->
+                                <div class="button-container">
+                                    <h:commandButton value="Dar de alta un entrenador"
+                                                     action="AltaEntrenador.xhtml" 
+                                                     styleClass="button"/>
+                                </div>
+
+                                <!-- Botone de la derecha -->
+                                <div class="button-container">
+                                    <h:commandButton styleClass="button" 
+                                                     value="Modificar o eliminar entrenador" 
+                                                     action="/web/vistasAdmin/ModificarOeliminarUnEntrenador.xhtml?faces-redirect=true" />
+                                </div>                              
+
+                            </div>
+                        </main>
+                    </section>
+
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

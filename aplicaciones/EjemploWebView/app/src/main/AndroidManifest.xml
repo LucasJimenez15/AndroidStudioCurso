@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="josedlujan.app.primera.mi.com.ejemplowebview" >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+<<<<<<< HEAD
+<!--Explicación por secciones:
+1. Declaración XML y etiqueta <manifest>
+Define que el archivo es XML con codificación UTF-8. La etiqueta <manifest> es la raíz, y el atributo package es el identificador único de tu aplicación (similar al namespace en Java). Esto es esencial para que Android distinga tu app de las demás.
+
+2. Permisos
+
+WRITE_EXTERNAL_STORAGE
+Permite escribir en la memoria externa del dispositivo. Antes se usaba mucho para guardar archivos accesibles fuera de la app, pero desde Android 10 en adelante, con Scoped Storage, su uso se limita por seguridad y privacidad.
+
+INTERNET
+Permite que la app acceda a internet. Es obligatorio si usas un WebView para cargar páginas web externas. Sin este permiso, solo podrías mostrar contenido local.
+
+3. <application>
+
+Aquí se definen propiedades globales para toda la app:
+allowBackup="true" permite que el sistema haga backups automáticos, lo que ayuda al usuario a recuperar datos si reinstala la app o cambia de dispositivo. icon define el ícono que identifica la app en el launcher y lista de apps. label es el nombre visible que aparecerá junto al icono. theme indica el estilo visual base que la app usará (colores, fuentes, etc).
+
+4. <activity>
+
+Esta etiqueta define cada pantalla o componente visible de tu app. En este caso, MainActivity es la actividad principal.
+android:name=".MainActivity" indica la clase que maneja esta pantalla. El punto indica que está en el paquete principal declarado arriba.
+
+android:exported="true" es obligatorio en Android 12+ para actividades con <intent-filter>. Significa que esta actividad puede ser lanzada desde fuera de la app (por ejemplo, al tocar el icono en el launcher). Antes esto se infería automáticamente, pero ahora es explícito para evitar riesgos de seguridad.
+label da un nombre visible a la actividad.
+
+5. <intent-filter>
+
+Especifica que esta actividad es el punto de entrada principal de la aplicación.
+action MAIN indica que esta es la acción principal para iniciar la app. category LAUNCHER hace que esta actividad aparezca en el launcher (el menú de apps del dispositivo) para que el usuario pueda lanzarla.-->
+
+=======
+>>>>>>> 66a49e072d16da3167898f2a154109ac288bf2ef
+<!-- a partir de Android 12 (API 31), el sistema requiere que
+todas las actividades (u otros componentes como servicios o receptores)
+ que tengan un <intent-filter> declaren explícitamente si son exportadas
+ o no, usando el atributo android:exported.-->

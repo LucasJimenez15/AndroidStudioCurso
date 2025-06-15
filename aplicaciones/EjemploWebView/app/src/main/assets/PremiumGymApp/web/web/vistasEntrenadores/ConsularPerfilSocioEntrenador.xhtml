@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaInicioEntrenador.xhtml">
+
+            <ui:define name="content">
+
+                <h:form enctype="multipart/form-data">
+
+                    <h:head>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                        <link rel="stylesheet" type="text/css" href="../../resources/css/stylesEntrenadores/styleConsultarPerfilSocio.css"/>
+                    </h:head>
+
+                    <!-- SECCION INICIO -->
+                    <section  class="inicio"> <!-- Sección de inicio de la página -->
+                        <main  class="contenido-seccion"> <!-- Contenido principal de la sección de inicio -->
+
+                            <div class="info">
+
+                                <!-- Sección de Información del Socio -->
+                                <div class="form-wrapper">
+
+                                    <!-- Sección de Búsqueda de DNI -->
+                                    <div class="form-section">
+                                        <div class="dni-busqueda">
+                                            <h:outputLabel for="dniBuscar" value="DNI del socio:" />
+                                            <h:inputText id="dniBuscar" value="#{sdao.dni}" styleClass="input-text" />
+                                            <h:commandButton value="Buscar" action="#{sdao.buscarPorDNIsocioMantener(sdao.dni)}" 
+                                                             styleClass="btn-buscar" />
+                                        </div>
+                                    </div>
+
+                                    <!--TABLA DE INFORMACION-->
+                                    <div class="tablaInfo">                                    
+                                        <h:panelGrid columns="2" styleClass="table tabla-bordes">                                         
+                                            <h:outputText value="Nombre:" />
+                                            <h:outputText value="#{sdao.socio.nombreSocio}" />
+
+                                            <h:outputText value="Apellido:" />
+                                            <h:outputText value="#{sdao.socio.apellidoSocio}" />
+
+                                            <h:outputText value="DNI:" />
+                                            <h:outputText value="#{sdao.socio.DNIsocio}" />
+
+                                            <h:outputText value="Fecha de nacimiento:" />
+                                            <h:outputText value="#{sdao.socio.fechaNacSocio}">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                            </h:outputText>
+
+                                            <h:outputText value="Direccion:" />
+                                            <h:outputText value="#{sdao.socio.direccionSocio}" />
+
+                                            <h:outputText value="Telefono:" />
+                                            <h:outputText value="#{sdao.socio.telefonoSocio}" />
+
+                                            <h:outputText value="Email:" />
+                                            <h:outputText value="#{sdao.socio.emailSocio}" />
+
+                                            <h:outputText value="Rutina: " />
+
+                                            <h:panelGroup>
+                                                <!-- Input de archivo visible -->
+                                                <h:inputFile id="fileUpload" styleClass="file-upload-button" value="#{modificaBean.pdfFile}"></h:inputFile>
+
+                                                <!-- Botón para guardar el PDF -->
+                                                <h:commandButton styleClass="btn-buscar" value="Cargar" action="#{modificaBean.subirPDF}" />
+                                            </h:panelGroup>
+
+                                        </h:panelGrid>                                    
+                                    </div>
+                                </div>
+
+                                <!---BOTONES PARA MOVERSE ENTRE LAS INTERFACES-->
+                                <div id="seccionBotones" class="seccionBotones">
+                                    <h:commandButton styleClass="button" value="Consultar perfil de socio" action="ConsularPerfilSocioEntrenador.xhtml"/>
+                                    <h:commandButton styleClass="button" value="Consultar asistencia de socio" action="ConsultarAsistenciaSocioEntrenador.xhtml"/>
+                                </div>
+
+                            </div>
+                        </main>
+                    </section>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

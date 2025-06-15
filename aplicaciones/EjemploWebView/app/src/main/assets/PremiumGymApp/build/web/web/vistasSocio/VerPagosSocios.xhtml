@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaInicioSocio.xhtml">
+
+            <ui:define name="content">
+
+                <h:head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" type="text/css" href="../../resources/css/stylesSocio/styleVerPagosSocio.css"/>
+                </h:head>
+
+                <!-- SECCION INICIO -->
+                <h:form>
+                    <section id="inicio" class="inicio"> <!-- Sección de inicio de la página -->
+                        <main id="contenido-seccion" class="contenido-seccion"> <!-- Contenido principal de la sección de inicio -->
+                            <div class="info">
+
+                                <!-- Sección de Búsqueda -->
+                                <div class="seccionBusqueda">
+                                    <div class="form-section">
+                                        <h:panelGrid columns="2">
+                                            Ingrese el inicio del período:
+                                            <h:inputText id="inicioPeriodo" value="#{pagBean.fechaInicio}" styleClass="input-text" required="true" requiredMessage="Debe ingresar una fecha de inicio" converterMessage="Fecha de inicio invalida">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                                <f:passThroughAttribute name="placeholder" value=" Ej. 2020-10-20" />
+                                            </h:inputText>
+
+                                            Ingrese el fin del período:
+                                            <h:inputText id="finPeriodo" value="#{pagBean.fechaFin}" styleClass="input-text"  required="true" requiredMessage="Debe ingresar una fecha de fin" converterMessage="Fecha de fin invalida">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                                <f:passThroughAttribute name="placeholder" value=" Ej. 2024-10-20" />
+                                            </h:inputText>
+                                            <h:commandButton value="Buscar" action="#{pagBean.verPagos(sdao.socio.DNIsocio)}" style="border-radius: 5px; width: 100px; height: 30px; background-color: #18d26e"/>
+                                        </h:panelGrid>
+                                    </div>
+                                    <h:messages styleClass="error-message" />
+                                    <!-- Tabla de Resultados -->
+                                    <div class="table-section" style="border: none; scrollbar-width: none;">
+                                        <h:panelGrid rendered="#{pagBean.listapago.size() > 0}" styleClass="table-section">
+                                            <h:dataTable value="#{pagBean.listapago}" var="pago" rendered="#{pagBean.listapago.size() > 0}">
+                                                <h:column>
+                                                    <f:facet name="header">Fecha de Pago</f:facet>
+                                                    <h:outputText value="#{pago.fechaPago}">
+                                                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                                                    </h:outputText>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Tipo de Membresía</f:facet>
+                                                        #{pago.tipoMembresia}
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Monto</f:facet>
+                                                        #{pago.monto}
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Tipo de Pago</f:facet>
+                                                        #{pago.tipoPago}
+                                                </h:column>
+                                            </h:dataTable>
+                                        </h:panelGrid>
+                                    </div>
+                                </div>
+
+                                <!---BOTONES PARA MOVERSE ENTRE LAS INTERFACES-->
+                                <div class="seccionBotones">                                  
+                                    <h:commandButton styleClass="button" value="Visualizar Rutina" action="#{rutBean.visualizarRutina(sdao.socio)}" immediate="true"/>
+                                    <h:commandButton styleClass="button" value="Descargar Rutina" action="#{rutBean.descargarRutina(sdao.socio)}" immediate="true"/>
+                                    <h:commandButton styleClass="button" value="Ver Pagos realizados" action="VerPagosSocios.xhtml" immediate="true"/>
+                                    <h:commandButton styleClass="button" value="Modificar Datos personales" action="ModificarDatosSocio.xhtml" immediate="true"/>
+                                    <h:commandButton style="background: #aa1133;" styleClass="button delete" value="Eliminar cuenta" action="#{accionBean.eliminarCuenta}" immediate="true"/>                               
+                                </div>
+                            </div>
+                        </main>
+                    </section>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

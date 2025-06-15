@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+        <ui:composition template="./../../plantilla/PlantillaInicioAdmin.xhtml">
+            <ui:define name="content">
+
+                <h:head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" type="text/css" href="../../resources/css/stylesAdmin/styleModificarOeliminarUnEntrenador.css" />
+                </h:head>
+
+                <!-- SECCIÓN INICIO -->
+
+                <section id="inicio" class="inicio">
+                    <main id="contenido-seccion" class="contenido-seccion">
+                        <div class="info">
+
+                            <!-- Sección de Información del Socio -->
+                            <div class="form-wrapper">
+
+                                <h:form enctype="multipart/form-data">
+
+                                    <!-- Sección de Búsqueda de DNI -->
+                                    <div class="form-section agrandar" style="display: flex; flex-direction: column;">
+                                        <div class="dni-busqueda">
+                                            <h:outputLabel for="dniBuscar" value="DNI del Entrenador:" />
+                                            <h:inputText id="dniBuscar" value="#{modificaBeanAdmin.dnient}" styleClass="input-text" required="true" requiredMessage="Debe ingresar un DNI"/>
+                                            <h:commandButton value="Buscar" action="#{modificaBeanAdmin.asignarEntrenador}" styleClass="btn-buscar"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <div class="panel-grid" style="display: grid; grid-template-columns: auto auto; gap: 10px;">
+
+                                            <h:outputText value="DNI:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="dni" value="#{modificaBeanAdmin.ent.DNIEntrenador}" styleClass="input-text" rendered="#{not empty modificaBeanAdmin.ent}" />
+
+                                            <h:outputText value="Nombre:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="nombre" value="#{modificaBeanAdmin.ent.nombreEntrenador}" styleClass="input-text"  rendered="#{not empty modificaBeanAdmin.ent}"/>
+
+                                            <h:outputText value="Apellido:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="apellido" value="#{modificaBeanAdmin.ent.apellidoEntrenador}" styleClass="input-text"  rendered="#{not empty modificaBeanAdmin.ent}"/>
+
+                                            <h:outputText value="Email:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="email" value="#{modificaBeanAdmin.ent.emailEntrenador}" styleClass="input-text"  rendered="#{not empty modificaBeanAdmin.ent}"/>
+
+                                            <h:outputText value="Fecha Nac:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="fechaNac" value="#{modificaBeanAdmin.ent.fechaNacEntrenador}" styleClass="input-text" rendered="#{not empty modificaBeanAdmin.ent}">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                            </h:inputText>
+
+                                            <h:outputText value="Contrasena:" rendered="#{not empty modificaBeanAdmin.ent}"/>
+                                            <h:inputText id="password" value="#{modificaBeanAdmin.ent.contrasenaEntrenador}" styleClass="input-text" rendered="#{not empty modificaBeanAdmin.ent}"/>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Botones de Control Debajo de los Campos -->
+                                    <div class="form-buttons">
+                                        <h:commandButton value="Guardar Cambios" action="#{modificaBeanAdmin.actualizarEntrenadorAdmin}" 
+                                                         styleClass="btn-guardar"/>
+                                        <h:commandButton value="Eliminar Entrenador" action="#{modificaBeanAdmin.eliminarEntrenadorAdmin}" 
+                                                         styleClass="btn-eliminar" onclick="return confirmarEliminacion();"/>
+                                        
+                                        <script>
+                                            function confirmarEliminacion() {
+                                                return confirm('¿Estás seguro de que deseas eliminar este entrenador?');
+                                            }
+                                        </script>
+                                        
+                                        <button type="button" class="btn-cancelar" 
+                                                onclick="window.location.href = 'VerEntrenadoresAdmin.xhtml';">Cancelar</button> 
+                                    </div>
+
+                                </h:form>
+                            </div>
+
+
+                        </div>
+                    </main>
+                </section>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

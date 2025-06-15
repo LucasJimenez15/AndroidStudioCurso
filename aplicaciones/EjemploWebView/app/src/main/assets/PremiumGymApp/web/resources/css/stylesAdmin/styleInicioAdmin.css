@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+/* Importamos una fuente de Google llamada 'Barlow'. Esto permite utilizar diferentes estilos 
+y grosores de la fuente, facilitando la consistencia tipográfica a lo largo del sitio web.*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+/* Aquí, eliminamos los márgenes y los rellenos predeterminados de todos los elementos HTML. 
+También aplicamos el modelo de caja 'border-box', lo que significa que el padding y el borde 
+se incluirán dentro del ancho y alto totales del elemento, lo que facilita el control del diseño. 
+Además, establecemos la fuente predeterminada de todo el sitio como 'Barlow'.*/
+
+html{
+    scroll-behavior: smooth;
+}
+/* Esta regla CSS se asegura de que al hacer clic en un enlace que navega a una sección dentro 
+de la misma página, la transición sea suave en lugar de saltar directamente a la sección. 
+Mejora la experiencia de usuario en sitios con enlaces internos.*/
+
+body{
+    background-color: #dde1e9;
+}
+/* El color de fondo del cuerpo de la página es un tono claro de gris azulado (#dde1e9), 
+lo que proporciona un fondo suave y neutral, evitando distracciones y facilitando la lectura 
+de contenido superpuesto.*/
+
+
+
+/* *********** */
+/* ENCABEZADO - MENU */
+/* *********** */
+
+.contenedor-header{
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid #1f283e;
+    background-color: rgba(0,0,0,.7);
+    z-index: 99;
+    padding: 0 20px;
+}
+/* El contenedor del encabezado ocupa todo el ancho de la pantalla (width: 100%), 
+lo que garantiza que el menú superior se extienda de borde a borde. Tiene una posición fija 
+(position: fixed), por lo que se mantiene visible en la parte superior incluso al desplazarse 
+por la página. Un borde inferior de 1px con color #1f283e (un tono oscuro de azul-gris) 
+le da una separación visual clara del contenido debajo. 
+El fondo del encabezado tiene una opacidad del 70% (rgba(0,0,0,.7)) para que sea parcialmente 
+transparente y el índice z (z-index: 99) asegura que el encabezado siempre esté por encima 
+de otros elementos en la página.*/
+
+.contenedor-header header{
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    color: #fff;
+}
+/* Dentro del contenedor del encabezado, el contenido se centra horizontalmente con un margen automático 
+(margin: auto) y un ancho máximo de 1100px para que no se estire demasiado en pantallas grandes. 
+Se utiliza flexbox (display: flex) para alinear los elementos hijos (como el logotipo y el menú) 
+uno al lado del otro, con espacio entre ellos (justify-content: space-between). Además, los elementos 
+se alinean verticalmente en el centro (align-items: center), y se les aplica un padding vertical de 20px 
+para aumentar el espacio alrededor. El texto en el encabezado es de color blanco (#fff).*/
+
+.txtVerde{
+    color:#2dff11;
+}
+/* Clase específica para aplicar un color verde neón (#2dff11) a los textos que lo necesiten. 
+Este color se puede utilizar para resaltar o destacar ciertos textos importantes en la página.*/
+
+.contenedor-header header nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    text-transform: uppercase;
+}
+/* Los enlaces de navegación dentro del encabezado se muestran como elementos en línea con 
+bloque (inline-block), lo que permite aplicarles un padding. No tienen subrayado (text-decoration: none), 
+lo cual es el estilo predeterminado de muchos enlaces, y son de color blanco. Se les aplica padding 
+para mejorar la accesibilidad al hacer clic, y su texto se transforma en mayúsculas (text-transform: uppercase) 
+para un aspecto uniforme y más impactante visualmente.*/
+
+.contenedor-header header nav a:hover{
+    color: #2dff11;
+}
+/* Cuando el usuario pasa el ratón sobre un enlace de navegación, su color cambia a rojo (#ff1133). 
+Esto proporciona una retroalimentación visual clara de que el enlace es interactivo.*/
+
+.contenedor-header header .redes a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 8px;
+}
+/* Los enlaces a redes sociales también son elementos en línea con bloque (inline-block), 
+lo que permite aplicar padding. Tienen el color blanco por defecto y no tienen subrayado. 
+El padding adicional asegura que el área clicable sea suficientemente amplia para un mejor 
+uso en dispositivos táctiles.*/
+
+.contenedor-header header .redes a img{
+    width: 60px;
+    height: 60px;
+}
+/* Las imágenes de las redes sociales tienen un tamaño fijo de 60x60 píxeles, 
+lo que garantiza una apariencia uniforme y facilita su reconocimiento.*/
+
+#LogoPremium{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px; /* Añade un margen si deseas separarlo un poco de la esquina */
+}
+
+.contenedor-header header .redes a:hover{
+    color: #138104;
+}
+/* Al pasar el ratón sobre los enlaces de las redes sociales, el color cambia a un verde oscuro (#138104), 
+lo que indica interactividad de una manera coherente con la paleta de colores del sitio.*/
+
+.nav-responsive{
+    display: none;
+    font-size: 25px;
+}
+/* Este menú de navegación responsive está inicialmente oculto (display: none) y se mostrará 
+cuando el sitio se vea en pantallas pequeñas, como en dispositivos móviles. 
+El tamaño de la fuente es más grande para facilitar la interacción táctil.*/
+
+
+
+/* *********** */
+/* SECCIÓN INICIO */
+/* *********** */
+
+.inicio{
+    height: 100vh;
+    background:linear-gradient(rgba(0, 1, 3, 0.5), rgba(0,0,0,.7)),url(../../resources/imagenesCodigo/imagenFondo.jpeg);
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    position: relative;
+}
+/* La sección de inicio tiene una altura que cubre toda la ventana del navegador (height: 100vh), 
+lo que la hace perfecta para pantallas completas. El fondo utiliza una imagen ('imagenFondo.jpeg') 
+superpuesta con un degradado oscuro que va desde un color negro semitransparente al 50% (rgba(0,1,3,0.5)) 
+en la parte superior hasta un 70% en la parte inferior (rgba(0,0,0,0.7)). Esto asegura que el texto y 
+otros contenidos superpuestos sean legibles. La imagen de fondo se ajusta para cubrir completamente 
+(background-size: cover) y está centrada tanto horizontal como verticalmente (background-position: center center).*/
+
+.inicio .contenido-seccion{
+    max-width: 1100px;
+    margin: auto;
+}
+/* El contenido de la sección de inicio está centrado y su ancho máximo es de 1100px, 
+lo que previene que el contenido se disperse en pantallas muy anchas y mantenga una estructura más legible.*/
+
+.inicio .info{
+    width:fit-content;
+    margin: auto;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+/* El contenedor de la información principal en la sección de inicio tiene un ancho ajustado 
+al contenido (width: fit-content) y está centrado tanto vertical como horizontalmente mediante 
+position: absolute y transformaciones CSS (translate(-50%, -50%)). El texto dentro de este contenedor 
+está alineado al centro (text-align: center), lo que mejora la presentación en el diseño de pantalla completa.*/
+
+.inicio .info h2{
+    font-size: 4rem;
+    letter-spacing: 3px;
+}
+/* El encabezado (h2) dentro de la sección de inicio es grande (4rem) y tiene un espacio entre 
+letras de 3px, lo que lo hace visualmente impactante y fácil de leer en pantallas grandes.*/
+
+.inicio .info p{
+    margin: 20px;
+    color: #797e8e;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+/* Los párrafos dentro de la sección de inicio tienen un margen de 20px alrededor para separarlos 
+de otros elementos. El color del texto es gris claro (#797e8e), lo que crea un contraste suave 
+sobre el fondo oscuro. La fuente tiene un tamaño moderado (16px) con un espaciado adicional 
+entre las letras (letter-spacing: 3px), lo que facilita la lectura. Además, todo el texto se 
+transforma a mayúsculas (text-transform: uppercase) para un estilo más formal y fuerte.*/
+
+.inicio .info .btn-mas{
+    width: 50px;
+    margin: auto;
+    height: 50px;
+    border: 2px solid #138104;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #138104;
+    margin-top: 50px;
+    text-decoration: none;
+}
+/* El botón "btn-mas" dentro de la sección de inicio es un botón circular con un tamaño de 
+50x50 píxeles. El margen automático (margin: auto) centra el botón en su contenedor. 
+El borde es de 2px de grosor con un color verde (#138104) que coincide con el estilo general del sitio. 
+Se utiliza 'display: flex' para centrar cualquier contenido (como un ícono) dentro del botón, 
+y 'border-radius: 50%' para hacerlo completamente redondo. Además, el color del texto dentro 
+del botón también es verde y el margen superior de 50px separa el botón de los elementos superiores. 
+La propiedad 'text-decoration: none' asegura que no haya subrayado en el texto del botón.*/
+
+.inicio .info .btn-mas img{
+    width: 30px;
+    height: 30px;
+}
+/* Las imágenes dentro del botón "btn-mas" tienen un tamaño fijo de 30x30 píxeles, 
+lo que proporciona un diseño uniforme y permite que se inserten imágenes o íconos que 
+representen la acción del botón.*/
+
+.opciones{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* El contenedor de opciones se posiciona absolutamente, lo que significa que se 
+colocará en relación con el contenedor más cercano que tenga una posición relativa. 
+Se utiliza flexbox para distribuir espacio entre los elementos de forma horizontal 
+(justify-content: space-between). La posición 'bottom: 30px' sitúa el contenedor 
+30 píxeles por encima de la parte inferior de su contenedor padre. El contenedor se 
+centra horizontalmente mediante 'left: 50%' y 'transform: translateX(-50%)'.*/
+
+.inicio .opciones .opcion{
+    border-top: 2px solid #797e8e;
+    padding: 7px;
+    color: #797e8e;
+    margin: 0 20px;
+}
+/* Cada opción dentro del contenedor de opciones tiene un borde superior de 2px de 
+color gris claro (#797e8e) y un padding de 7px para crear espacio interior. El texto 
+de las opciones es también de color gris claro, proporcionando un contraste adecuado 
+sobre el fondo. El margen lateral (margin: 0 20px) separa las opciones entre sí.*/
+
+#botonDeslizar{
+    color: #138104;
+}
+/* Este ID específico aplica un color verde (#138104) a cualquier elemento que 
+tenga la ID "botonDeslizar", asegurando que este botón destaque en la interfaz.*/
+
+
+
+
+/* *********** */
+/* SECCION NOSOTROS */
+/* *********** */
+.nosotros{
+    max-width: 1100px;
+    margin: auto;
+    height: 100vh;
+    background-color: #dde1e9;
+    padding: 100px 20px;
+}
+/* La sección "nosotros" tiene un ancho máximo de 1100px y está centrada con margen automático. 
+Ocupa toda la altura de la ventana del navegador (height: 100vh) y tiene un color de fondo 
+del mismo tono claro que el cuerpo de la página. Un padding de 100px en la parte superior e inferior 
+y 20px a los lados asegura que el contenido no esté pegado a los bordes.*/
+
+.nosotros .fila{
+    display: flex;
+    align-items: center;
+}
+/* Cada fila dentro de la sección "nosotros" se configura como un contenedor flex, 
+lo que permite alinear sus elementos hijos (como imágenes y texto) en una línea horizontal. 
+'align-items: center' asegura que los elementos se alineen verticalmente en el centro, 
+mejorando la presentación visual.*/
+
+.nosotros .fila .col{
+    width: 50%;
+}
+/* Cada columna dentro de la fila ocupa el 50% del ancho del contenedor padre, 
+lo que permite mostrar dos columnas en una sola fila en pantallas más grandes.*/
+
+.nosotros .fila .col img{
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+    border-radius: 100%;
+}
+/* Las imágenes dentro de las columnas ocupan el 90% del ancho del contenedor padre, 
+y se centran automáticamente con 'margin: auto'. La propiedad 'display: block' 
+elimina el espacio extra debajo de la imagen que a menudo se presenta en elementos 
+en línea. Un margen inferior de 50px proporciona separación de otros elementos, 
+y 'border-radius: 100%' convierte las imágenes en círculos, dándoles un aspecto más atractivo.*/
+
+.nosotros .fila .col .contenedor-titulo{
+    display: flex;
+    align-items:center ;
+}
+/* El contenedor del título dentro de cada columna también se establece como un 
+contenedor flex, lo que permite alinear sus elementos hijos horizontalmente. 
+Esto facilita la organización de números e información descriptiva de forma 
+estética.*/
+
+
+.nosotros .fila .col .contenedor-titulo .info{
+    margin-left: 30px;
+}
+/* El contenedor de información a la derecha del número tiene un margen izquierdo de 
+30px, lo que proporciona espacio entre el número y el texto descriptivo, mejorando 
+la legibilidad.*/
+
+.nosotros .fila .col .contenedor-titulo .info .frase{
+    color: #138104;
+}
+/* El color del texto de la frase dentro de la sección de título es verde (#138104), 
+coincidiendo con el esquema de color general y aportando cohesión visual al diseño.*/
+
+.nosotros .fila .col .contenedor-titulo .info h2{
+    font-size: 3rem;
+}
+/* El título dentro de la sección de información tiene un tamaño de fuente grande (3rem), 
+lo que lo hace destacar adecuadamente sobre otros textos en la sección.*/
+
+.nosotros .fila .col p{
+    margin-bottom: 10px;
+    line-height: 28px;
+}
+/* Los párrafos dentro de las columnas tienen un margen inferior de 10px para separarlos 
+de otros elementos. La altura de línea de 28px mejora la legibilidad del texto al proporcionar 
+espacio adicional entre las líneas.*/
+
+.nosotros .fila .col .p-especial{
+
+    font-weight: bold;
+}
+/* Cualquier párrafo con la clase "p-especial" se muestra en negrita, lo que lo hace 
+destacar en la sección y enfatiza información importante.*/
+
+
+.nosotros .fila-nosotros{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* La fila que contiene información sobre "nosotros" se configura como un contenedor flex 
+que permite la distribución uniforme de los elementos, garantizando que haya espacio 
+entre ellos (justify-content: space-between) y que se alineen verticalmente en el centro 
+(align-items: center)*/
+
+.nosotros .fila-nosotros .frase{
+    font-size: 18px;
+    font-weight: 600;
+}
+/* Las frases dentro de la fila "nosotros" tienen un tamaño de fuente de 18px y un peso 
+de fuente de 600 (semi-negrita), asegurando que sean legibles y visualmente distintas 
+de otros textos más ligeros.*/
+
+.nosotros .fila-nosotros h2{
+    font-size: 2.5rem;
+}
+/* Los encabezados (h2) dentro de la fila "nosotros" tienen un tamaño de fuente de 2.5rem, 
+lo que los hace destacarse adecuadamente en la sección, manteniendo un buen equilibrio 
+con otros textos.*/
+
+
+
+
+/* ********** */
+/* GALERIA */
+/* ********** */
+.galeria {
+    color: #fff;
+    background: linear-gradient(rgba(0, 80, 27, 0.6), rgba(0, 0, 0, 0.7)), url(../img/fondo-galeria.jpg);
+    background-size: cover;
+    background-position: center center;
+    padding: 100px 0;
+}
+/* La sección "galeria" tiene un color de texto blanco y un fondo 
+que combina un degradado verde semitransparente con negro sobre una 
+imagen de fondo. Se establece un padding de 100px en la parte superior 
+e inferior para crear un espacio visual adecuado. */
+
+.galeria .contenido-seccion {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+/* "contenido-seccion" limita el ancho a 1100px y se centra en la página. 
+El padding lateral de 20px asegura que el contenido no esté pegado a los bordes. */
+
+.galeria .contenedor-titulo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+/* El contenedor del título utiliza flexbox para alinear sus elementos verticalmente, 
+y un margen inferior de 40px proporciona separación del contenido siguiente. */
+
+.galeria .contenedor-titulo .numero {
+    color: #138104;
+    font-weight: bold;
+    display: block;
+    font-size: 5rem;
+}
+/* El número dentro del título es de color verde y en negrita, 
+lo que lo hace destacado y fácil de leer, con un tamaño de 5rem. */
+
+.galeria .contenedor-titulo .info {
+    margin-left: 30px;
+}
+/* El contenedor de información tiene un margen izquierdo de 30px 
+para separar el número del texto informativo. */
+
+.galeria .contenedor-titulo .info .frase {
+    color: #138104;
+}
+/* La frase dentro del contenedor de información también es de color verde, 
+manteniendo la coherencia visual. */
+
+.galeria .contenedor-titulo .info h2 {
+    font-size: 3rem;
+}
+/* El encabezado (h2) tiene un tamaño de 3rem, lo que lo hace visible 
+y legible dentro del contexto del título. */
+
+.galeria .fila {
+    display: flex;
+    flex-direction: row;
+}
+/* "fila" utiliza flexbox para organizar sus elementos en una fila, 
+permitiendo una disposición horizontal. */
+
+.galeria .fila .col img {
+    width: 80%;
+    margin: 20px;
+    display: block;
+}
+/* Las imágenes dentro de "col" se establecen con un ancho del 80% 
+y un margen de 20px para proporcionar separación entre ellas. */
+
+/* *********** */
+/* FOOTER */
+/* *********** */
+footer {
+    background-color: #151623;
+    padding: 30px 0;
+}
+/* El footer tiene un color de fondo oscuro y un padding de 30px 
+en la parte superior e inferior para crear un espacio interno adecuado. */
+
+footer .info {
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+/* La sección de información en el footer utiliza flexbox para distribuir 
+sus elementos, tiene un ancho máximo de 1100px y un padding lateral de 20px 
+para evitar que el contenido esté pegado a los bordes. */
+
+footer .info p {
+    color: #797e8e;
+}
+/* Los párrafos dentro de "info" tienen un color gris claro, 
+que proporciona un buen contraste con el fondo oscuro. */
+
+footer .info a {
+    text-decoration: none;
+    color: #797e8e;
+    display: inline-block;
+    margin: 0 15px;
+}
+/* Los enlaces dentro de "info" no tienen subrayado y son de color gris claro. 
+Se muestran como bloques en línea, con márgenes laterales para separarlos. */
+
+footer .info img {
+    width: 50px;
+    height: 50px;
+}
+/* Las imágenes dentro de "info" tienen un tamaño fijo de 50x50 píxeles, 
+asegurando una consistencia en la presentación. */
+
+
+
+/* *********** */
+/* RESPONSIVE */
+/* *********** */
+@media only screen and (max-width: 1350px) {
+    header nav {
+        position: initial;
+        display: none;
+        transform: translate(0);
+    }
+    /* En pantallas más pequeñas, el menú de navegación se oculta 
+    y su posición se restablece a "inicial". */
+
+    header .redes {
+        display: flex;  /* Usa flexbox para alinear los iconos horizontalmente */
+        justify-content: center;  /* Centra los iconos horizontalmente */
+        align-items: center;  /* Centra los iconos verticalmente */
+    }
+
+
+    #LogoPremium{
+        display: none;
+    }
+
+    .nav-responsive {
+        display: block;
+    }
+    /* La navegación responsive se activa y se muestra en pantallas pequeñas. */
+
+    nav.responsive {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #151623;
+        z-index: 99;
+    }
+    /* El menú de navegación responsive se organiza en una columna, 
+    ocupando toda la pantalla y asegurando que esté visible sobre otros contenidos. */
+
+    nav.responsive a {
+        display: block;
+        width: fit-content;
+        margin: 10px auto;
+        font-size: 30px;
+    }
+    /* Los enlaces del menú responsive se muestran como bloques, con un margen 
+    vertical y un tamaño de fuente grande para facilitar la interacción. */
+
+    .inicio .opciones {
+        display: none;
+    }
+    /* Las opciones de inicio se ocultan en vista responsive. */
+
+    .nosotros .fila {
+        display: block;
+    }
+    /* Las filas en la sección "nosotros" se disponen en bloque en pantallas pequeñas. */
+
+    .nosotros .fila .col {
+        width: 100%;
+        margin: auto;
+    }
+    /* Las columnas en "nosotros" ocupan el 100% del ancho disponible 
+    y se centran en la página. */
+
+    .nosotros .fila .col .textoDescrpcion{
+        font-size: small;
+        width: 100%;
+    }
+
+    .nosotros .fila .col img {
+        max-width: 200px;
+        display: block;
+        margin: auto;
+    }
+    /* Las imágenes en "nosotros" tienen un ancho máximo de 200px, 
+    garantizando que no se vean demasiado grandes en pantallas pequeñas. */
+
+    footer .info {
+        display: block;
+        text-align: center;
+    }
+    /* La información del footer se muestra en bloque y se centra 
+    para una mejor presentación en dispositivos pequeños. */
+
+    footer .info p {
+        margin-bottom: 10px;
+    }
+    /* Los párrafos en el footer tienen un margen inferior de 10px 
+    para crear separación entre ellos. */
+}
+
+@media only screen and (max-width: 500px) {
+    #logoMaps, #logoFacebook, #logoInstagram{
+        width: 40px;
+        height: 40px; 
+    }
+
+    .textoDescripcion{
+        font-size: 8px;
+    }
+
+}

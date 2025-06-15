@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./../../plantilla/PlantillaRegistro.xhtml">
+
+        <!-- Definir la sección del contenido -->
+        <ui:define name="content">
+            <h:form enctype="multipart/form-data">
+                <main>
+                    <!-- Título de la sección de registro -->
+                    <h1 id="TituloRegistrarse">Registrarse</h1>
+
+                    <!-- Formulario de registro -->
+                    <div class="formulario">
+                        <!-- Fila 1 -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoDNIRegistro" value="DNI:" />
+                            <h:inputText id="ingresoDNIRegistro" value="#{registroBean.soc.DNIsocio}" required="true"
+                                         requiredMessage="El DNI es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.DNIsocio == null ? 'error-input' : ''}" 
+                                         converterMessage="Debe ser un numero"
+                                         validatorMessage="Numero muy grande">
+                                <f:convertNumber integerOnly="true" />
+                                <f:validateLength maximum="15"/>
+                            </h:inputText>
+                            <h:message for="ingresoDNIRegistro" styleClass="error-message" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="fechaNacSocio" value="Fecha de Nacimiento:" />
+                            <h:inputText id="fechaNacSocio" value="#{registroBean.soc.fechaNacSocio}" required="true"
+                                         requiredMessage="La fecha de nacimiento es obligatoria."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.fechaNacSocio == null ? 'error-input' : ''}"
+                                         converterMessage="La fecha debe ser en formato yyyy-MM-dd">
+                      
+                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                            </h:inputText>
+                            <h:message for="fechaNacSocio" styleClass="error-message" />
+                        </div>
+
+                        <!-- Fila 2 -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoNombreRegistro" value="Nombre:" />
+                            <h:inputText id="ingresoNombreRegistro" value="#{registroBean.soc.nombreSocio}" required="true"
+                                         requiredMessage="El nombre es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.nombreSocio == null ? 'error-input' : ''}" 
+                                         validatorMessage="Debe ingresar solo letras">
+                                <f:validateRegex pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" />
+                                <f:validateLength maximum="15"/>
+                            </h:inputText>
+                            <h:message for="ingresoNombreRegistro" styleClass="error-message" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoDirRegistro" value="Dirección:" />
+                            <h:inputText id="ingresoDirRegistro" value="#{registroBean.soc.direccionSocio}" required="true"
+                                         requiredMessage="La dirección es obligatoria."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.direccionSocio == null ? 'error-input' : ''}" 
+                                         validatorMessage="Demasiados caracteres">
+                                <f:validateLength maximum="20"/>
+                            </h:inputText>
+                            <h:message for="ingresoDirRegistro" styleClass="error-message" />
+                        </div>
+
+                        <!-- Fila 3 -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoApellRegistro" value="Apellido:" />
+                            <h:inputText id="ingresoApellRegistro" value="#{registroBean.soc.apellidoSocio}" required="true"
+                                         requiredMessage="El apellido es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.apellidoSocio == null ? 'error-input' : ''}" 
+                                         validatorMessage="Debe ingresar solo letras">
+                                <f:validateRegex pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" />
+                                <f:validateLength maximum="15"/>
+                            </h:inputText>
+                            <h:message for="ingresoApellRegistro" styleClass="error-message" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoPesoRegistro" value="Peso:" />
+                            <h:inputText id="ingresoPesoRegistro" value="#{registroBean.soc.pesoSocio}" required="true"
+                                         requiredMessage="El peso es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.pesoSocio == null ? 'error-input' : ''}" 
+                                         converterMessage="Debe ser un numero"
+                                         validatorMessage="Numero muy grande">
+                                <f:validateLength maximum="8"/>
+                            </h:inputText>
+                            <h:message for="ingresoPesoRegistro" styleClass="error-message" />
+                        </div>
+
+                        <!-- Fila 4 -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoEmailRegistro" value="Email:" />
+                            <h:inputText id="ingresoEmailRegistro" value="#{registroBean.soc.emailSocio}" required="true"
+                                         requiredMessage="El email es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.emailSocio == null ? 'error-input' : ''}" >
+                                <f:validateLength maximum="100"/>
+                            </h:inputText>
+                            <h:message for="ingresoEmailRegistro" styleClass="error-message" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoAlturaRegistro" value="Altura:" />
+                            <h:inputText id="ingresoAlturaRegistro" value="#{registroBean.soc.alturaSocio}" required="true"
+                                         requiredMessage="La altura es obligatoria."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.alturaSocio == null ? 'error-input' : ''}" 
+                                         converterMessage="Debe ser un numero"
+                                         validatorMessage="Numero muy grande">
+                                <f:validateLength maximum="8"/>
+                            </h:inputText>
+                            <h:message for="ingresoAlturaRegistro" styleClass="error-message" />
+                        </div>
+
+                        <!-- Fila 5 -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoTelRegistro" value="Teléfono:" />
+                            <h:inputText id="ingresoTelRegistro" value="#{registroBean.soc.telefonoSocio}" required="true"
+                                         requiredMessage="El teléfono es obligatorio."
+                                         styleClass="#{facesContext.validationFailed and registroBean.soc.telefonoSocio == null ? 'error-input' : ''}" 
+                                         converterMessage="Debe ser un numero"
+                                         validatorMessage="Numero muy grande">
+                                <f:validateLength maximum="20"/>
+                                <f:convertNumber integerOnly="true" />
+                            </h:inputText>
+                            <h:message for="ingresoTelRegistro" styleClass="error-message" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="ingresoPassRegistro" value="Contraseña:" />
+                            <h:inputSecret id="ingresoPassRegistro" value="#{registroBean.soc.contrasenaSocio}" required="true"
+                                           requiredMessage="La contraseña es obligatoria."
+                                           styleClass="#{facesContext.validationFailed and registroBean.soc.contrasenaSocio == null ? 'error-input' : ''}" 
+                                           validatorMessage="Demasiados caracteres">
+                            <f:validateLength maximum="20"/>
+                            </h:inputSecret>
+                            <h:message for="ingresoPassRegistro" styleClass="error-message" />
+                        </div>
+
+                        <!-- Fila 6: Imagen de perfil -->
+                        <div class="form-group">
+                            <h:outputLabel for="ingresofotoRegistro" value="Ingrese una foto de perfil:" />
+                            <h:inputFile id="ingresofotoRegistro" value="#{registroBean.uploadedFile}" />            
+                            <h:message for="ingresofotoRegistro" styleClass="error-message" />
+                        </div>
+
+                        <!-- Botón de registro -->
+                        <h:commandButton id="botonReg" value="Registrar" action="#{registroBean.guardarSocio()}" styleClass="botonReg" />
+                        <!-- Botón de Cancelar -->
+                        <h:commandButton id="botonCan" value="Cancelar" action="/index.xhtml?faces-redirect=true" styleClass="botonCan" immediate="true"/>
+
+                    </div>
+                </main>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</html>

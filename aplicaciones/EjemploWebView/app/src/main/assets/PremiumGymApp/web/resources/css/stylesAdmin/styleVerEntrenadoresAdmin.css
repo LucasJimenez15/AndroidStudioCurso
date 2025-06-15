@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+/* Importamos una fuente de Google llamada 'Barlow'. Esto permite utilizar diferentes estilos 
+y grosores de la fuente, facilitando la consistencia tipográfica a lo largo del sitio web.*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+/* Aquí, eliminamos los márgenes y los rellenos predeterminados de todos los elementos HTML. 
+También aplicamos el modelo de caja 'border-box', lo que significa que el padding y el borde 
+se incluirán dentro del ancho y alto totales del elemento, lo que facilita el control del diseño. 
+Además, establecemos la fuente predeterminada de todo el sitio como 'Barlow'.*/
+
+html{
+    scroll-behavior: smooth;
+}
+/* Esta regla CSS se asegura de que al hacer clic en un enlace que navega a una sección dentro 
+de la misma página, la transición sea suave en lugar de saltar directamente a la sección. 
+Mejora la experiencia de usuario en sitios con enlaces internos.*/
+
+body{
+    background-color: #dde1e9;
+}
+/* El color de fondo del cuerpo de la página es un tono claro de gris azulado (#dde1e9), 
+lo que proporciona un fondo suave y neutral, evitando distracciones y facilitando la lectura 
+de contenido superpuesto.*/
+
+
+/* *********** */
+/* SECCIÓN INICIO */
+/* *********** */
+.inicio {
+    height: 100vh;  /* Establece la altura de la sección a 100% de la altura de la ventana */
+    background: linear-gradient(rgba(0, 1, 3, 0.5), rgba(0, 0, 0, .7)), url(../..//imagenesCodigo/imagenFondo.jpeg);
+    /* Aplicar un fondo con un degradado oscuro y una imagen de fondo */
+    background-size: cover;  /* Asegura que la imagen de fondo cubra toda la sección */
+    background-position: center center;  /* Centra la imagen de fondo */
+    color: #fff;  /* Establece el color del texto a blanco */
+}
+
+.inicio .container {
+    display: flex;  /* Usa flexbox para alinear los elementos en línea */
+    justify-content: space-between;  /* Distribuye el espacio entre los elementos */
+    align-items: center;  /* Alinea verticalmente al centro */
+    gap: 300px;  /* Espacio entre los elementos flexibles */
+    height: 100vh;  /* Establece la altura de la sección a 100% de la altura de la ventana */
+    padding: 20px;  /* Añade espacio interior alrededor del contenido */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+}
+
+.button {
+    padding: 15px;
+    background-color: #00a884;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #00896c;
+    opacity: 0.7;
+}
+
+/* *********** */
+/* RESPONSIVE */
+/* *********** */
+@media only screen and (max-width: 1350px) {
+
+    .nav-responsive {
+        display: block;  /* Activa la navegación responsiva */
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    /* Ajustes en pantallas pequeñas */
+
+    .inicio .container{
+        gap: 10px;       
+    }
+    
+    .nav-responsive {
+        display: block;  /* Activa la navegación responsiva */
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    /* Ajustes en pantallas muy pequeñas (390px de ancho máximo) */
+
+    .inicio .container {
+        flex-direction: column;  /* Cambia la disposición de los elementos a columna */
+        align-items: center;  /* Alinea todos los elementos en el centro */
+        gap: 0;  /* Reduce el espacio entre los elementos */
+        width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
+        padding: 5px;  /* Ajusta el padding para pantallas pequeñas */
+        justify-content: center;
+    }
+
+    .button-container{
+        align-items: center;  /* Centra los botones */
+        padding: 5px;  /* Reduce el padding para optimizar el espacio */
+        width: 100%;  /* Los botones ocuparán el 100% del ancho disponible */
+        gap: 10px;
+    }
+
+    .button{
+        width: 100%;  /* Los botones ocupan todo el ancho disponible */
+        margin: 5px 0;  /* Reduce el margen entre los botones */
+        padding: 8px;  /* Ajusta el padding interno de los botones */
+        font-size: 0.9em;  /* Reduce el tamaño de la fuente en los botones */
+        transform: none;  /* Elimina cualquier transformación aplicada */
+    }
+
+    .nav-responsive {
+        display: block;  /* Asegura que la navegación responsiva esté visible */
+    }
+}

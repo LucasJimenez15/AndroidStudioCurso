@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="stylesEntrenadores/styleInicioEntrenador.css"/>
+        <link rel="icon" type="image/png" href="../../resources/imagenesCodigo/logoPremiumGymModificado.png"/>
+        <title>Inicio</title>
+    </h:head>
+
+    <h:body>
+
+        <!-- HEADER -->
+        <div id="top">
+            <ui:insert name="top">
+                <!-- MENU -->
+                <div class="contenedor-header"> <!-- Contenedor del encabezado -->
+                    <header>
+                        <h1>Premium Gym App</h1> <!-- Título principal de la aplicación -->
+
+                        <!-- Barra de navegación -->
+                        <nav id="nav">
+                            <!-- Enlaces de navegación, se les asocia la función seleccionar() -->
+                            <h:link value="Inicio" outcome="InicioEntrenador.xhtml" onclick="seleccionar()" />
+                            <h:link value="Ver Perfil" outcome="VerPerfilEntrenador.xhtml" onclick="seleccionar()" />
+                            <h:link value="Cerrar sesión" outcome="/index.xhtml" onclick="seleccionar()" />
+                        </nav>
+
+                        <!-- Redes sociales -->
+                        <div class="redes"> <!-- Sección de redes sociales -->
+                            <a href="https://www.facebook.com/premiumgym20/"> <!-- Enlace a Facebook -->
+                                <h:graphicImage id="logoFacebook" library="imagenesCodigo" name="facebook.png" alt="facebook"/>
+                            </a>
+                            <a href="https://www.instagram.com/premiumgym_/"> <!-- Enlace a Instagram -->
+                                <h:graphicImage  id="logoInstagram" library="imagenesCodigo" name="instagram.png" alt="instagram"/>
+                            </a>
+                            <a href="https://www.google.com/maps/place/Premium+Gym+-+La+Banda/@-27.7465508,-64.2444775,17z/data=!3m1!4b1!4m6!3m5!1s0x943b51675c141f23:0x4cd111868840bc34!8m2!3d-27.7465508!4d-64.2419026!16s%2Fg%2F11f8h30gjb?entry=ttu"> <!-- Enlace a la ubicación en Google Maps -->
+                                <h:graphicImage id="logoMaps"  library="imagenesCodigo" name="mapas-de-google.png" alt="ubicacion"/>
+                            </a>                          
+                            <!-- Imagen del logo del gimnasio -->
+                            <h:graphicImage id="LogoPremium" library="imagenesCodigo" name="logoPremiumGymModificado.png"/>
+
+                        </div>
+
+                        <!-- Icono del menu responsive -->
+                        <!-- Icono de menú hamburguesa para versiones móviles, con evento onclick -->
+                        <h:graphicImage library="imagenesCodigo" name="hamburguesa.png" alt="Menú" style="width: 50px; height: 50px;" 
+                                        onclick="mostrarOcultarMenu()" class="nav-responsive" />
+                    </header>
+                </div>
+            </ui:insert>
+        </div>
+
+        <!-- CONTENT -->
+        <div id="content" class="center_content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <!--FOOTER-->
+                <footer> <!-- Pie de página -->
+                    <div class="info"> <!-- Información del pie de página -->
+                        <p>2024 - <span class="txtVerde">Premium Gym App</span> Todos los derechos reservados</p>
+                        <div class="developers"> <!-- Créditos de desarrollo -->
+                            <p>Desarrollado por</p>
+                            <ul style="list-style: none;"> <!-- Lista de desarrolladores -->
+                                <li class="txtVerde">Jiménez Lucas</li> <!-- Desarrollador 1 -->
+                                <li class="txtVerde">Deibele Lucas</li> <!-- Desarrollador 2 -->
+                            </ul>
+                        </div>
+                        <p>¿Dónde estamos ubicados?</p> <!-- Ubicación -->
+                        <a href="https://www.google.com/maps/place/Premium+Gym+-+La+Banda/@-27.7465508,-64.2444775,17z/data=!3m1!4b1!4m6!3m5!1s0x943b51675c141f23:0x4cd111868840bc34!8m2!3d-27.7465508!4d-64.2419026!16s%2Fg%2F11f8h30gjb?entry=ttu"> <!-- Enlace a Google Maps con icono -->
+                            <h:graphicImage library="imagenesCodigo" name="ubicacion.png" alt="ubicacion" />
+                        </a>
+                    </div>
+                </footer>
+            </ui:insert>
+        </div>
+
+        <!-- Script JavaScript -->
+        <h:outputScript library="js" name="app.js" />
+
+
+    </h:body>
+
+</html>

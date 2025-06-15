@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaInicioAdmin.xhtml">
+
+            <ui:define name="content">
+
+                <h:head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" type="text/css" href="../../resources/css/stylesAdmin/styleInformePagosSocios.css"/>
+                </h:head>
+
+                <!-- SECCION INICIO -->
+                <h:form>
+                    <section id="inicio" class="inicio">
+                        <main id="contenido-seccion" class="contenido-seccion">
+                            <div class="info">
+
+                                <!-- Sección de Búsqueda -->
+                                <div class="seccionBusqueda">
+                                    <div class="form-section">
+                                        <h:panelGrid columns="2">
+                                            Ingrese el DNI del Socio:
+                                            <h:inputText id="dniSoc" value="#{pagBean.dni}" styleClass="input-text" required="true" requiredMessage="Debe ingresar un dni de socio" converterMessage="Dni invalido" validatorMessage="Numero muy grande">
+                                                <f:passThroughAttribute name="placeholder" value="Dni de un socio" />
+                                                <f:convertNumber integerOnly="true" />
+                                                <f:validateLength maximum="15"/>
+                                            </h:inputText>
+
+                                            Ingrese el inicio del período:
+                                            <h:inputText id="inicioPeriodo" value="#{pagBean.fechaInicio}" styleClass="input-text" required="true" requiredMessage="Debe ingresar una fecha de inicio" converterMessage="Fecha de inicio invalida">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                                <f:passThroughAttribute name="placeholder" value="Ej. 2020-10-20" />
+                                            </h:inputText>
+
+                                            Ingrese el fin del período:
+                                            <h:inputText id="finPeriodo" value="#{pagBean.fechaFin}" styleClass="input-text"  required="true" requiredMessage="Debe ingresar una fecha de fin" converterMessage="Fecha de fin invalida">
+                                                <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                                <f:passThroughAttribute name="placeholder" value="Ej. 2024-10-20" />
+                                            </h:inputText>
+                                            <h:commandButton value="Buscar" action="#{pagBean.verPagos(pagBean.dni)}" style="border-radius: 5px; width: 100px; height: 30px; background-color:#81C784;"/>
+                                        </h:panelGrid>
+                                    </div>
+                                    <h:messages styleClass="error-message" />
+                                    <!-- Tabla de Resultados -->
+                                    <div class="table-section" style="border: none;">
+                                        <h:panelGrid rendered="#{pagBean.listapago.size() > 0}" styleClass="table-section">
+                                            <h:dataTable value="#{pagBean.listapago}" var="pago" rendered="#{pagBean.listapago.size() > 0}">
+                                                <h:column>
+                                                    <f:facet name="header">Fecha de Pago</f:facet>
+                                                    <h:outputText value="#{pago.fechaPago}">
+                                                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                                                    </h:outputText>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Tipo de Membresía</f:facet>
+                                                        #{pago.tipoMembresia}
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Monto</f:facet>
+                                                        #{pago.monto}
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">Tipo de Pago</f:facet>
+                                                        #{pago.tipoPago}
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header"> - - - - - </f:facet>
+                                                    <h:commandButton styleClass="buttonBorrar" value="Borrar" action="#{pagBean.borrarPago(pago)}"/>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </h:panelGrid>
+                                    </div>
+                                </div>
+
+                                <!---BOTON PARA VOLVER-->
+                                <div class="seccionBotones">
+                                    <h:commandButton styleClass="button" value="Volver" action="/web/vistasAdmin/VerSociosAdmin.xhtml?faces-redirect=true" immediate="true"/>
+                                </div>
+                            </div>
+                        </main>
+                    </section>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

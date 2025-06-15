@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaInicioSocio.xhtml">
+
+            <ui:define name="content">
+
+                <h:head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" type="text/css" href="../../resources/css/stylesSocio/styleModificarDatosSocio.css"/>
+                </h:head>
+
+                <!-- SECCION INICIO -->
+
+                <section id="inicio" class="inicio"> <!-- Sección de inicio de la página -->
+                    <main id="contenido-seccion" class="contenido-seccion"> <!-- Contenido principal de la sección de inicio -->
+                        <div class="info">
+
+                            <!-- DATOS A MODIFICAR -->
+                            <h:form enctype="multipart/form-data">
+                                <h:panelGrid columns="2" styleClass="form-section">
+
+                                    <!-- Nombre -->
+                                    Nombre: 
+                                    <h:inputText id="nombreSocio" styleClass="input-text" value="#{modificaBean.soc.nombreSocio}" maxlength="15">
+                                        <f:validateRegex pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" />
+                                        <f:validateLength minimum="1" maximum="15"/>
+                                    </h:inputText>
+
+                                    <!-- Apellido -->
+                                    Apellido: 
+                                    <h:inputText id="apellidoSocio" styleClass="input-text" value="#{modificaBean.soc.apellidoSocio}"  maxlength="15">
+                                        <f:validateRegex pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" />
+                                        <f:validateLength minimum="1" maximum="15"/>
+                                    </h:inputText>
+
+                                    <!-- Dirección -->
+                                    Dirección: 
+                                    <h:inputText id="direccionSocio" styleClass="input-text" value="#{modificaBean.soc.direccionSocio}" maxlength="20">
+                                        <f:validateLength minimum="1" maximum="20"/>
+                                    </h:inputText>
+
+                                    <!-- Peso -->
+                                    Peso (kg): 
+                                    <h:inputText id="pesoSocio" styleClass="input-text" value="#{modificaBean.soc.pesoSocio}">
+                                        <f:convertNumber integerOnly="true" />
+                                    </h:inputText>
+
+                                    <!-- Altura -->
+                                    Altura (cm): 
+                                    <h:inputText id="alturaSocio" styleClass="input-text" value="#{modificaBean.soc.alturaSocio}">
+                                        <f:convertNumber integerOnly="true" />
+                                    </h:inputText>
+                                    
+                                    <!-- Telefono -->
+                                    Telefono: 
+                                    <h:inputText id="telefonoSocio" styleClass="input-text" value="#{modificaBean.soc.telefonoSocio}" required="true">
+                                        <f:convertNumber integerOnly="true" />
+                                        <f:validateLength minimum="1" maximum="20"/>
+                                    </h:inputText>
+
+                                    <!-- Fecha de nacimiento -->
+                                    Fecha de nacimiento: 
+                                    <h:inputText id="IngresoFnRegistro" styleClass="input-text" value="#{modificaBean.soc.fechaNacSocio}">
+                                        <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                    </h:inputText>
+
+                                    <!-- Foto de Perfil -->
+                                    Foto de perfil:                                    
+                                    <h:inputFile id="IngresoFoto" value="#{modificaBean.uploadedFile}" styleClass="imagenCambiar"/>
+
+
+                                    <h:commandButton value="Guardar Cambios" action="#{modificaBean.actualizarSocio()}" styleClass="save-btn"/>
+                                    <button type="button" onclick="window.location = 'VerPerfilSocio.xhtml'" class="cancel-btn">Cancelar</button>
+
+                                </h:panelGrid>
+                            </h:form>
+
+                            <!-- IMAGEN DEL SOCIO -->
+                            <h:graphicImage styleClass="img" 
+                                            value="/mostrarFoto?dni=#{sdao.socio.DNIsocio}" 
+                                            alt="Imagen del Socio" />
+
+
+                            <!---BOTONES PARA MOVERSE ENTRE LAS INTERFACES-->
+                            <h:form styleClass="formBotones">
+                                <div class="seccionBotones">                                 
+                                    <h:commandButton styleClass="button" value="Visualizar Rutina" action="#{rutBean.visualizarRutina(sdao.socio)}"/>
+                                    <h:commandButton styleClass="button" value="Descargar Rutina" action="#{rutBean.descargarRutina(sdao.socio)}"/>
+                                    <button class="button" type="button" onclick="window.location = 'VerPagosSocios.xhtml'" >Ver Pagos Realizados</button>
+                                    <h:commandButton styleClass="button" value="Modificar Datos personales" action="ModificarDatosSocio.xhtml"/>
+                                    <h:commandButton style="background: #aa1133;" styleClass="button delete" value="Eliminar cuenta" action="#{accionBean.eliminarCuenta}"/>                               
+                                </div>
+                            </h:form>
+                        </div>
+                    </main>
+                </section>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

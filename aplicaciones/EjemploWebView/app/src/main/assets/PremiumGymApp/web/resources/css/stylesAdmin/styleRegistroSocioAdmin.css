@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+/* Importamos una fuente de Google llamada 'Barlow'. Esto permite utilizar diferentes estilos 
+y grosores de la fuente, facilitando la consistencia tipográfica a lo largo del sitio web.*/
+
+/* Estilo general del cuerpo */
+body {
+    /* Configura el cuerpo de la página como un contenedor flex */
+    display: flex;
+    /* Centra el contenido horizontalmente */
+    justify-content: center;
+    /* Centra el contenido verticalmente */
+    align-items: center;
+    /* Establece una altura mínima de 100% del viewport */
+    min-height: 100vh;
+    /* Elimina márgenes predeterminados */
+    margin: 0;
+    /* Define una fuente sans-serif para todo el documento */
+    font-family: 'Barlow';
+    /* Establece un color de fondo gris claro */
+    background: linear-gradient(rgba(0, 1, 3, 0.5), rgba(0, 0, 0, .7)), url(../..//imagenesCodigo/imagenFondo.jpeg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;  /* Centra la imagen de fondo */
+    
+}
+
+/* Contenedor principal */
+main {
+    /* Define el color de fondo del contenedor principal como blanco */
+    background-color: white;
+    /* Aplica un padding interno de 30px */
+    padding: 30px;
+    /* Redondea las esquinas del contenedor */
+    border-radius: 20px;
+    /* Aplica una sombra suave al contenedor */
+    box-shadow: 0 0px 40px 20px rgba(0, 0, 0, 0.1);
+    /* Limita el ancho máximo del contenedor a 700px */
+    max-width: 700px;
+    /* Ajusta el ancho al 90% del viewport para hacerlo responsivo */
+    width: 90%;
+    /* Establece una altura del 50% del viewport */
+    height: 50%;
+}
+
+/* Título de la página */
+#TituloRegistrarse {
+    /* Define el tamaño de la fuente a 2.5em (relativo al tamaño base) */
+    font-size: 2.5em;
+    /* Establece un margen inferior de 20px */
+    margin-bottom: 20px;
+    /* Centra el texto */
+    text-align: center;
+}
+
+/* Contenedor del formulario */
+.formulario {
+    /* Configura el contenedor del formulario como un contenedor flex */
+    display: flex;
+    /* Permite que los elementos se envuelvan en líneas nuevas si es necesario */
+    flex-wrap: wrap;
+    /* Distribuye el espacio entre los elementos */
+    justify-content: space-between;
+    /* Aplica un padding interno de 20px */
+    padding: 20px;
+}
+
+/* Contenedor individual de cada par de campo */
+.form-group {
+    /* Configura el contenedor de cada campo como un contenedor flex en columna */
+    display: flex;
+    flex-direction: column;
+    /* Establece el ancho de cada elemento al 50% menos 20px para el espaciado */
+    flex-basis: calc(50% - 20px);
+    /* Agrega un margen inferior de 20px entre los elementos */
+    margin-bottom: 20px;
+}
+
+/* Estilo para los labels */
+label {
+    /* Define el tamaño de la fuente a 18px */
+    font-size: 18px;
+    /* Aplica un margen inferior de 8px entre el label y el input */
+    margin-bottom: 8px;
+}
+
+/* Estilo para los inputs de texto, email, número, contraseña, fecha, y archivo */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="file"] {
+    /* Configura el ancho del input al 100% del contenedor */
+    width: 100%;
+    /* Aplica un padding interno de 12px para el contenido del input */
+    padding: 12px;
+    /* Define un borde sólido y gris claro alrededor del input */
+    border: 1px solid #ccc;
+    border-bottom: 2px solid black;
+    /* Redondea las esquinas del input */
+    border-radius: 3px;
+    /* Ajusta el tamaño de la fuente dentro del input a 16px */
+    font-size: 16px;
+}
+
+input[type="file"] {
+    width: 213%;
+}
+
+
+/* Botón de registro */
+.botonReg {
+    /* Establece el ancho del botón al 100% del contenedor */
+    width: 100%;
+    /* Aplica un padding interno de 15px */
+    padding: 15px;
+    /* Define el color de fondo del botón como un tono verde oscuro */
+    background-color: #00550b;
+    /* Establece el color del texto en blanco */
+    color: white;
+    /* Elimina el borde predeterminado */
+    border: none;
+    /* Redondea las esquinas del botón */
+    border-radius: 5px;
+    /* Ajusta el tamaño de la fuente a 18px */
+    font-size: 18px;
+    /* Cambia el cursor al estilo de puntero cuando el usuario pasa el mouse sobre el botón */
+    cursor: pointer;
+    /* Agrega un margen superior de 20px entre el botón y el elemento anterior */
+    margin-top: 20px;
+}
+
+/* Efecto hover para el botón de registro */
+.botonReg:hover {
+    /* Cambia el color de fondo a un tono verde más oscuro cuando el botón es hovered */
+    background-color: #003a08;
+}
+
+/* Botón de registro */
+.botonCan {
+    /* Establece el ancho del botón al 100% del contenedor */
+    width: 100%;
+    /* Aplica un padding interno de 15px */
+    padding: 15px;
+    /* Define el color de fondo del botón como un tono verde oscuro */
+    background-color: red;
+    /* Establece el color del texto en blanco */
+    color: white;
+    /* Elimina el borde predeterminado */
+    border: none;
+    /* Redondea las esquinas del botón */
+    border-radius: 5px;
+    /* Ajusta el tamaño de la fuente a 18px */
+    font-size: 18px;
+    /* Cambia el cursor al estilo de puntero cuando el usuario pasa el mouse sobre el botón */
+    cursor: pointer;
+    /* Agrega un margen superior de 20px entre el botón y el elemento anterior */
+    margin-top: 20px;
+}
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* En pantallas pequeñas, los elementos de formulario ocupan el 100% del ancho */
+    .form-group {
+        flex-basis: 100%;
+    }
+
+    /* Ajusta el ancho del contenedor principal a 80% del ancho del viewport */
+    main {
+        width: 80vw;
+    }
+
+    /* Reduce el tamaño del título en pantallas pequeñas */
+    #TituloRegistrarse {
+        font-size: 2em;
+    }
+    
+    input[type="file"] {
+    width: 100%;
+    }
+    
+}
+

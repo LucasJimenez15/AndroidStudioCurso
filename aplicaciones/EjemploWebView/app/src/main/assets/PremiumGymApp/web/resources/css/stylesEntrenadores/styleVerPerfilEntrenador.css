@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+/* Importamos una fuente de Google llamada 'Barlow'. Esto permite utilizar diferentes estilos 
+y grosores de la fuente, facilitando la consistencia tipográfica a lo largo del sitio web.*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+/* Aquí, eliminamos los márgenes y los rellenos predeterminados de todos los elementos HTML. 
+También aplicamos el modelo de caja 'border-box', lo que significa que el padding y el borde 
+se incluirán dentro del ancho y alto totales del elemento, lo que facilita el control del diseño. 
+Además, establecemos la fuente predeterminada de todo el sitio como 'Barlow'.*/
+
+html{
+    scroll-behavior: smooth;
+}
+/* Esta regla CSS se asegura de que al hacer clic en un enlace que navega a una sección dentro 
+de la misma página, la transición sea suave en lugar de saltar directamente a la sección. 
+Mejora la experiencia de usuario en sitios con enlaces internos.*/
+
+body{
+    background-color: #dde1e9;
+}
+/* El color de fondo del cuerpo de la página es un tono claro de gris azulado (#dde1e9), 
+lo que proporciona un fondo suave y neutral, evitando distracciones y facilitando la lectura 
+de contenido superpuesto.*/
+
+
+/* *********** */
+/* SECCIÓN INICIO */
+/* *********** */
+.inicio {
+    height: 100vh;  /* Establece la altura de la sección a 100% de la altura de la ventana */
+    background: linear-gradient(rgba(0, 1, 3, 0.5), rgba(0, 0, 0, .7)), url(../../imagenesCodigo/imagenFondo.jpeg);
+    /* Aplicar un fondo con un degradado oscuro y una imagen de fondo */
+    background-size: cover;  /* Asegura que la imagen de fondo cubra toda la sección */
+    background-position: center center;  /* Centra la imagen de fondo */
+    color: #fff;  /* Establece el color del texto a blanco */
+}
+
+/* Estructura del contenido */
+.inicio .info {
+    display: flex;  /* Usa flexbox para alinear los elementos en línea */
+    justify-content: space-between;  /* Distribuye el espacio entre los elementos */
+    gap: 100px;  /* Espacio entre los elementos flexibles */
+    align-items: center;  /* Alinea verticalmente al centro */
+    height: 100vh;  /* Establece la altura de la sección a 100% de la altura de la ventana */
+    padding: 20px;  /* Añade espacio interior alrededor del contenido */
+}
+
+/* Estilo de la tabla, alineada a la izquierda */
+.inicio .info .tablaInfo {
+    width: 30vw;  /* Establece el ancho de la tabla como un porcentaje de la ventana */
+    height: auto;  /* La altura se ajustará automáticamente */
+    align-items: start;  /* Alinea los elementos al inicio (parte superior) */
+    text-align: start;  /* Alinea el texto a la izquierda */
+    font-family: 'Barlow';  /* Establece la fuente de la tabla */
+    margin: 0;  /* Elimina el margen */
+    padding: 20px;  /* Espacio interno dentro de la tabla */
+    transform: translate(-50%, 0);  /* Desplaza la tabla hacia la izquierda */
+}
+
+.inicio .info .tablaInfo .tabla-bordes {
+    border-collapse: collapse;  /* Colapsa los bordes de la tabla para que aparezcan como uno solo */
+}
+
+/* Estilo de las celdas de la tabla */
+.tabla-bordes td {
+    border: 1px solid black;  /* Establece un borde negro alrededor de las celdas */
+    padding: 5px;  /* Espacio interno en las celdas */
+    white-space: nowrap;  /* Evita que el contenido se ajuste a múltiples líneas */
+}
+
+/* Imagen del usuario centrada */
+.inicio .info img {
+    height: 300px;  /* Establece la altura de la imagen */
+    width: auto;  /* El ancho se ajusta automáticamente para mantener la proporción */
+    margin: 0 40px;  /* Añade márgenes horizontales para separar la imagen de otros elementos */
+}
+
+/* Botones alineados a la derecha */
+.info .seccionBotones {
+    display: flex;  /* Usa flexbox para alinear los botones en columna */
+    flex-direction: column;  /* Coloca los botones en columna */
+    align-items: center;  /* Centra los botones */
+    padding: 20px;  /* Añade espacio interior alrededor de la sección de botones */
+}
+
+.info .seccionBotones .button {
+    margin: 10px 0;  /* Añade márgenes verticales entre los botones */
+    padding: 15px 20px;  /* Espacio interno dentro de los botones */
+    width: 200px;  /* Establece un ancho fijo para los botones */
+    text-align: center;  /* Centra el texto dentro de los botones */
+}
+
+.button {
+    background: black;
+    cursor: pointer;
+    border: none;
+    color: azure;
+    border-radius: 12px;
+}
+
+
+/* *********** */
+/* RESPONSIVE */
+/* *********** */
+@media only screen and (max-width: 1350px) {
+    /* Ajustes en pantallas pequeñas */
+    .inicio .info {
+        flex-direction: row;  /* Mantiene la disposición en fila */
+        align-items: center;  /* Alinea los elementos en el centro */
+        gap: 60px;  /* Espacio entre los elementos */
+        width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
+    }
+
+    .inicio .info img {
+        height: 230px;  /* Reduce la altura de la imagen */
+        width: auto;  /* El ancho se ajusta automáticamente */
+        margin: 20px 0;  /* Ajusta los márgenes verticales */
+    }
+
+    .inicio .info .tablaInfo {
+        width: 100%;  /* La tabla ocupa todo el ancho disponible */
+        text-align: start;  /* Alinea el texto a la izquierda */
+        white-space: nowrap;  /* Evita que el contenido de la tabla se ajuste a múltiples líneas */
+        transform: translate(0, 0);  /* Elimina cualquier transformación previa */
+    }
+
+    .info .seccionBotones {
+        align-items: center;  /* Centra los botones */
+        padding: 20px;  /* Añade espacio interno */
+    }
+
+    .info .seccionBotones .button {
+        width: 100%;  /* Ajusta el tamaño de los botones */
+        white-space: nowrap;  /* Evita que el texto en los botones se ajuste a múltiples líneas */
+        align-items: center;  /* Centra los elementos dentro de la sección de botones */
+    }
+
+    .nav-responsive {
+        display: block;  /* Activa la navegación responsiva */
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    /* Ajustes en pantallas muy pequeñas (390px de ancho máximo) */
+
+    body{
+        overflow-x: hidden;
+    }
+    
+    .inicio .info {
+        flex-direction: column;  /* Cambia la disposición de los elementos a columna */
+        align-items: center;  /* Alinea todos los elementos en el centro */
+        gap: 10px;  /* Reduce el espacio entre los elementos */
+        width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
+        padding: 5px;  /* Ajusta el padding para pantallas pequeñas */
+    }
+
+    .inicio .info img {
+        height: 150px;  /* Reduce la altura de la imagen en pantallas pequeñas */
+        width: auto;  /* El ancho se ajusta automáticamente */
+        margin: 5px 0;  /* Reduce los márgenes alrededor de la imagen */
+        position: relative;  /* Elimina la posición absoluta para evitar desbordamiento */
+        left: 0;  /* Elimina el desplazamiento a la izquierda */
+        top: 0;  /* Desplaza la imagen hacia abajo */
+    }
+
+    .inicio .info .tablaInfo {
+        width: 150%;  /* La tabla ocupa casi todo el ancho de la pantalla */
+        text-align: center;  /* Centra el texto dentro de la tabla */
+        transform: translate(25%, 75%);  /* Elimina el desplazamiento de la tabla */
+        height: auto;  /* Ajusta la altura de la tabla automáticamente */
+        font-size: 1em;  /* Reduce el tamaño de la fuente en la tabla */
+    }
+
+    .tabla-bordes td {
+        border: 1px solid black;  /* Mantiene los bordes de las celdas */
+        padding: 3px;  /* Reduce el padding en las celdas */
+        white-space: normal;  /* Permite que el contenido de las celdas se ajuste a múltiples líneas */
+        font-size: 0.8em;  /* Reduce el tamaño de la fuente en las celdas */
+    }
+
+    .info .seccionBotones {
+        align-items: center;  /* Centra los botones */
+        padding: 5px;  /* Reduce el padding para optimizar el espacio */
+        width: 100%;  /* Los botones ocuparán el 100% del ancho disponible */
+    }
+
+    .info .seccionBotones .button {
+        width: 100%;  /* Los botones ocupan todo el ancho disponible */
+        margin: 5px 0;  /* Reduce el margen entre los botones */
+        padding: 8px;  /* Ajusta el padding interno de los botones */
+        font-size: 0.9em;  /* Reduce el tamaño de la fuente en los botones */
+        transform: none;  /* Elimina cualquier transformación aplicada */
+    }
+
+    .nav-responsive {
+        display: block;  /* Asegura que la navegación responsiva esté visible */
+    }
+}
+

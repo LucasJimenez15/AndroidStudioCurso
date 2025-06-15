@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./../../plantilla/PlantillaInicioSocio.xhtml">
+
+            <ui:insert name="top">
+                <img id="LogoPremium" src="../../resources/imagenesCodigo/logoPremiumGymModificado.png" alt="Logo del gimnasio"/>
+            </ui:insert>
+
+            <ui:define name="content">
+                <h:form>
+
+                    <h:head>
+                        <link rel="stylesheet" type="text/css" href="../../resources/css/stylesSocio/styleVerPerfilSocio.css"/>
+                    </h:head>
+
+                    <!-- SECCIÓN DE INFORMACIÓN DEL SOCIO -->
+                    <section class="inicio">
+                        <main class="contenido-seccion">
+                            <div class="info">
+                                <div class="tablaInfo">                                    
+                                    <h:panelGrid columns="2" styleClass="table tabla-bordes">                                         
+                                        <h:outputText value="Nombre:" />
+                                        <h:outputText value="#{sdao.socio.nombreSocio}" />
+
+                                        <h:outputText value="Apellido:" />
+                                        <h:outputText value="#{sdao.socio.apellidoSocio}" />
+
+                                        <h:outputText value="DNI:" />
+                                        <h:outputText value="#{sdao.socio.DNIsocio}" />
+
+                                        <h:outputText value="Fecha de nacimiento:" />
+                                        <h:outputText value="#{sdao.socio.fechaNacSocio}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03"/>
+                                        </h:outputText>
+
+                                        <h:outputText value="Dirección:" />
+                                        <h:outputText value="#{sdao.socio.direccionSocio}" />
+
+                                        <h:outputText value="Teléfono:" />
+                                        <h:outputText value="#{sdao.socio.telefonoSocio}" />
+
+                                        <h:outputText value="Email:" />
+                                        <h:outputText value="#{sdao.socio.emailSocio}" />
+
+                                        <h:outputText value="Peso:" />
+                                        <h:outputText value="#{sdao.socio.pesoSocio}" />
+
+                                        <h:outputText value="Altura:" />
+                                        <h:outputText value="#{sdao.socio.alturaSocio}" />
+
+                                    </h:panelGrid>                                    
+                                </div>
+
+                                <!-- IMAGEN DEL SOCIO -->
+                                <h:graphicImage styleClass="img" 
+                                                value="/mostrarFoto?dni=#{sdao.socio.DNIsocio}" />
+
+                                <!-- BOTONES PARA NAVEGAR -->
+                                <div id="seccionBotones" class="seccionBotones">
+                                    <h:commandButton styleClass="button" value="Registrar Asistencia" 
+                                                     action="#{asistenciaBean.registrarAsistencia(sdao.socio)}"
+                                                     rendered="#{not asistenciaBean.botonDesactivado}"
+                                                     onclick="showSuccessMessage(); return true;"/> <!-- Asegúrate de que el botón no se detenga -->
+                                    <h:commandButton styleClass="button" value="Visualizar Rutina" action="#{rutBean.visualizarRutina(sdao.socio)}"/>
+                                    <h:commandButton styleClass="button" value="Descargar Rutina" action="#{rutBean.descargarRutina(sdao.socio)}"/>
+                                    <h:commandButton styleClass="button" value="Ver Pagos realizados" action="VerPagosSocios.xhtml"/>
+                                    <h:commandButton styleClass="button" value="Modificar Datos personales" action="ModificarDatosSocio.xhtml" onclick="#{modificaBean.buscarSocios(sdao.socio.DNIsocio)}"/>
+                                    <h:commandButton style="background: #aa1133;" styleClass="button delete" value="Eliminar cuenta" action="#{modificaBean.eliminarCuenta(sdao.socio.DNIsocio)}" onclick="return confirmarEliminacion();"/>
+                                    
+                                    <script>
+                                            function confirmarEliminacion() {
+                                                return confirm('¿Estás seguro de que deseas eliminar tu cuenta?');
+                                            }
+                                        </script>
+                                    
+                                </div>
+                                
+                                <div id="successMessage" class="hidden">¡Registro de asistencia Exitoso!</div>
+                                
+                            </div>
+                        </main>
+                    </section>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

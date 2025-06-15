@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/PlantillaRegistro.xhtml">
+
+            <!-- Definir la sección del contenido -->
+            <ui:define name="content">
+
+                <h:head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" type="text/css" href="../../resources/css/stylesAdmin/styleRegistrarPagoSocio.css"/>
+                </h:head>
+
+                <h:form enctype="multipart/form-data">
+                    <main>
+                        <h1 id="TituloRegistrarse">Registrar pago de un socio</h1>
+
+                        <div class="formulario">
+                            <!-- Fila 1 - Fecha de Pago -->
+                            <div class="form-group">
+                                <h:outputLabel for="ingresoFechaPago" value="Fecha de Pago:"/>
+                                <h:inputText id="ingresoFechaPago" value="#{pagBean.pag.fechaPago}" required="true"
+                                             requiredMessage="La fecha de pago es obligatoria."
+                                             styleClass="#{facesContext.validationFailed and registroBean.soc.DNIsocio == null ? 'error-input' : ''}" 
+                                             converterMessage="Debe ingrear una fecha como yyyy-MM-dd">
+                                    <f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-03"/>
+                                </h:inputText>
+                                <h:message for="ingresoFechaPago" styleClass="error-message" />
+                            </div>
+
+                            <!-- Fila 2 - Monto del Pago -->
+                            <div class="form-group">
+                                <h:outputLabel for="ingresoMontoPago" value="Monto:"/>
+                                <h:inputText id="ingresoMontoPago" value="#{pagBean.pag.monto}" required="true"
+                                             requiredMessage="El monto de pago es obligatorio."
+                                             styleClass="#{facesContext.validationFailed and registroBean.soc.DNIsocio == null ? 'error-input' : ''}"
+                                             converterMessage="Debe ser un numero"/>
+                                <h:message for="ingresoMontoPago" styleClass="error-message" />
+                            </div>
+
+                            <!-- Fila 3 - Tipo de Pago -->
+                            <div class="form-group">
+                                <h:outputLabel for="ingresoTipoPago" value="Tipo Pago:" />
+                                <h:selectOneMenu id="ingresoTipoPago" value="#{pagBean.pag.tipoPago}" styleClass="dropdown" required="true"
+                                                 requiredMessage="El tipo de pago es obligatorio.">
+                                    <f:selectItem itemLabel="Seleccione un tipo de pago" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Efectivo" itemValue="efectivo"/>
+                                    <f:selectItem itemLabel="Tarjeta" itemValue="tarjeta"/>
+                                    <f:selectItem itemLabel="Transferencia" itemValue="transferencia"/>
+                                </h:selectOneMenu>
+                                <h:message for="ingresoTipoPago" styleClass="error-message" />
+                            </div>
+                            
+                            <!-- Fila 5 - DNI del Socio -->
+                            <div class="form-group">
+                                <h:outputLabel for="ingresoDniSocio" value="DNI del socio: "/>
+                                <h:inputText id="ingresoDniSocio" value="#{pagBean.dni}"  required="true"
+                                             requiredMessage="El Dni del socio es obligatorio."
+                                             styleClass="#{facesContext.validationFailed and registroBean.soc.DNIsocio == null ? 'error-input' : ''}"
+                                             converterMessage="Debe ser un numero"/>
+                                <h:message for="ingresoDniSocio" styleClass="error-message" />
+                                <!-- Contenedor para mensajes globales -->
+                                <h:messages globalOnly="true" styleClass="error-message" />
+                            </div>
+
+                            <!-- Fila 4 - Tipo de Membresía -->
+                            <div class="form-group">
+                                <h:outputLabel for="ingresoTipoMembresia" value="Tipo de Membresía:" />
+                                <h:selectOneMenu id="ingresoTipoMembresia" value="#{pagBean.pag.tipoMembresia}" styleClass="dropdown" required="true"
+                                                 requiredMessage="El tipo de membresia es obligatorio.">
+                                    <f:selectItem itemLabel="Seleccione un tipo de Membresía" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Mensual" itemValue="1"/>
+                                    <f:selectItem itemLabel="Semanal" itemValue="2"/>
+                                    <f:selectItem itemLabel="Diaria" itemValue="3"/>
+                                </h:selectOneMenu>
+                                <h:message for="ingresoTipoMembresia" styleClass="error-message" />
+                            </div>
+
+
+
+                            <!-- Botón de registro -->
+                            <h:commandButton id="botonReg" value="Registrar" action="#{pagBean.registrarPago}" styleClass="botonReg" />
+
+                            <!-- Botón de Cancelar -->
+                            <button type="button" onclick="window.location = 'VerSociosAdmin.xhtml'" class="botonCan">Cancelar</button>
+                        </div>
+                    </main>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

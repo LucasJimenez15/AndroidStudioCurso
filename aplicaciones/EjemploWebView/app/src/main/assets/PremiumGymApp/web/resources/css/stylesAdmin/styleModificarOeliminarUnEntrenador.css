@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+
+body {
+    background-color: #dde1e9;
+}
+
+.inicio {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 1, 3, 0.5), rgba(0, 0, 0, .7)), 
+        url(../../imagenesCodigo/imagenFondo.jpeg);
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 30px;
+    white-space: nowrap;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+    transform: translate(-40%,0);
+}
+
+.form-wrapper .agrandar{
+    width: 120%;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    width: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.input-text {
+    width: 100%;
+    max-width: 150px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.btn-guardar, .btn-eliminar, .btn-cancelar {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-guardar {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-cancelar {
+    background-color: #a3a3a3;
+    color: white;
+}
+
+.btn-cancelar:hover , .btn-eliminar:hover{
+    opacity: 0.7;
+}
+
+.botonCambiarImagen:hover , .btn-guardar:hover{
+    opacity: 0.7;
+}
+
+.table{
+    width: 100%;
+}
+
+.imagenCam{
+    width: 230px;
+    height: 230px;
+}
+
+.botonCambiarImagen{
+    background: yellowgreen;
+    cursor: pointer;
+    border: none;
+    color: azure;
+    border-radius: 12px;
+    margin: 10px 0;  /* Añade márgenes verticales entre los botones */
+    padding: 15px 20px;  /* Espacio interno dentro de los botones */
+    width: 200px;  /* Establece un ancho fijo para los botones */
+    text-align: center;  /* Centra el texto dentro de los botones */
+}
+
+/* Botón de Buscar */
+.btn-buscar {
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-buscar:hover {
+    opacity: 0.8;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .form-wrapper {
+        width: 90%; /* Evita que exceda el ancho del viewport */
+        padding: 10px;
+        transform: translate(-30%,10%);
+
+    }
+    
+    .form-wrapper .agrandar{
+        width: 140%;
+    }
+    
+    .imagenCam{
+        margin-top: 200px;
+        width: 120px;
+        height: 120px;
+        margin-right: 30px;
+        display: none;
+    }
+
+    .input-text{
+        width: 100%;
+    }
+
+    .botonCambiarImagen{
+        width: 100px;
+        height: 70px;
+        font-size: 12px;
+        white-space: normal;
+        text-align: center;
+        margin-right: 30px;
+    }
+
+    .form-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-section {
+    width: 120%;
+}
+
+}

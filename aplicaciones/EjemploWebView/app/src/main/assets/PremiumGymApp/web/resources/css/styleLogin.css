@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+
+/* Estilo general del cuerpo */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    font-family: 'Barlow'; 
+    background-image: url(../../resources/img/fondo1.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contenedor principal */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    width: 50vw;
+    height: auto; 
+    max-width: 600px; 
+    transition: transform 0.3s; /* Transición suave */
+}
+
+
+/* Título de la página */
+#TituloInicioSesion {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #00550b; /* Color verde */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto */
+}
+
+/* Estilo de la imagen (icono de usuario) */
+main img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de cada par de h2 e input */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+    margin-bottom: 20px;
+}
+
+/* Título de (Email y Contraseña) */
+.form-group h2 {
+    font-size: 20px;
+    margin-right: 20px;
+    flex-basis: 30%; 
+    text-align: left;
+    color: #00550b; /* Color verde */
+}
+
+/* Campos de entrada */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    flex-basis: 100%; 
+    border-bottom: 2px solid #00550b; /* Color verde */
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+/* Efecto al enfocar el campo de entrada */
+.form-group input:focus {
+    border-color: #003a08; /* Color más oscuro al enfocar */
+}
+
+/* Estilo del botón "Ingresar" */
+.form-group input[type="submit"] {
+    width: 70%;
+    padding: 10px;
+    background-color: #00550b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+/* Hover en el botón para darle un efecto */
+.form-group input[type="submit"]:hover {
+    background-color: #003a08;
+}
+
+/* Estilo del texto en el pie de página */
+strong {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #000000;
+}
+
+/* Enlace de registro */
+strong a { 
+    color: #047000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Select personalizado */
+select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    width: 200px;
+    height: 50px;
+    font-size: 1em;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 5px;
+    appearance: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+/* Estilo de la lista de errores */
+ul {
+    position: fixed;
+    left: 35%;
+    top: 48%;
+    font-family: 'Barlow';
+    font-weight: bold;
+    animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Estilo de mensajes de error */
+.error-message {
+    font-weight: bold;
+    color: red;
+    font-size: 14px;
+    animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    main {
+        width: 60vw; 
+        padding: 20px; 
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group h2 {
+        margin-bottom: 10px;
+        width: 100%; 
+    }
+
+    .form-group input {
+        width: 90%; 
+    }
+
+    #TituloInicioSesion {
+        font-size: 1.8em; 
+    }
+
+    .form-group input[type="submit"] {
+        width: 100%;
+    }
+
+    select{
+      width: 120px;  
+    }
+    
+} 

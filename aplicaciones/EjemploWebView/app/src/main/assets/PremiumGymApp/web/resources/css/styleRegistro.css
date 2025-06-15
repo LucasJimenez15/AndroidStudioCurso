@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+/* Importamos una fuente de Google llamada 'Barlow'. Esto permite utilizar diferentes estilos 
+y grosores de la fuente, facilitando la consistencia tipográfica a lo largo del sitio web.*/
+
+/* Estilo general del cuerpo */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Barlow';
+    background-image: url(../../resources/assets/img/intro-carousel/4.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contenedor principal */
+main {
+    background-color: rgba(255, 255, 255, 0.9); /* Gris con transparencia */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0px 40px 20px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 90%;
+    height: auto; /* Permite que el contenido crezca según sea necesario */
+    transition: transform 0.3s; /* Transición suave */
+}
+
+/* Efecto de elevación al pasar el ratón */
+main:hover {
+    transform: translateY(-5px);
+}
+
+/* Título de la página */
+#TituloRegistrarse {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00550b; /* Color verde */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto */
+}
+
+/* Contenedor del formulario */
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Contenedor individual de cada par de campo */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 20px);
+    margin-bottom: 20px;
+}
+
+/* Estilo para los labels */
+label {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* Estilo para los inputs de texto, email, número, contraseña, fecha, y archivo */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid black;
+    border-radius: 3px;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+/* Efecto al enfocar el campo de entrada */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus {
+    border-color: #00550b; /* Color verde al enfocar */
+}
+
+input[type="file"] {
+    width: 213%;
+}
+
+.error-input {
+    border: 1px solid red; /* Borde rojo para campos en error */
+    background-color: #ffe6e6; /* Fondo claro para resaltar */
+}
+
+.error-message {
+    color: red; /* Mensaje de error en rojo */
+    font-size: 0.9em; /* Tamaño de fuente para los mensajes de error */
+}
+
+/* Botón de registro */
+.botonReg {
+    width: 100%;
+    padding: 15px;
+    background-color: #00550b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+/* Efecto hover para el botón de registro */
+.botonReg:hover {
+    background-color: #003a08;
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Botón de cancelar */
+.botonCan {
+    width: 100%;
+    padding: 15px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+/* Efecto hover para el botón de cancelar */
+.botonCan:hover {
+    background-color: darkred; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form-group {
+        flex-basis: 100%; /* Cada grupo ocupa el 100% del ancho */
+    }
+
+    main {
+        width: 80vw; /* Ajusta el ancho del contenedor principal */
+    }
+
+    #TituloRegistrarse {
+        font-size: 2em; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    input[type="file"] {
+        width: 100%; /* Asegura que el input de archivo ocupe el 100% */
+    }
+}
+
+/* Animación de desvanecimiento para mensajes de error */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: red; /* Mensaje de error en rojo */
+    font-size: 0.9em; /* Tamaño de fuente para los mensajes de error */
+    animation: fadeOut 1s ease-in-out 2s forwards; /* Animación de desvanecimiento */
+}
+
+/* Estilo para el contenedor de mensajes de error */
+.error-container {
+    margin-top: 10px; /* Espacio superior para el contenedor de errores */
+    text-align: center; /* Centra el texto de los mensajes de error */
+}
+
+/* Estilo para el botón de volver */
+.botonVolver {
+    width: 100%;
+    padding: 15px;
+    background-color: #00550b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+/* Efecto hover para el botón de volver */
+.botonVolver:hover {
+    background-color: #003a08; /* Color más oscuro al pasar el ratón */
+}

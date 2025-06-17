@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<!-- Declaración estándar de archivo XML -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,33 +10,86 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <!--
+        Este es el contenedor principal del diseño.
+        CoordinatorLayout permite coordinar elementos interactivos, como AppBar, RecyclerView, FAB, etc.
+
+        🔸 ¿Por qué usar CoordinatorLayout?
+        Porque permite animaciones coordinadas entre la barra de herramientas, listas que se deslizan,
+        y botones flotantes. Antes se usaban LinearLayout o RelativeLayout, pero no permitían
+        este tipo de interacciones de forma tan natural.
+    -->
+
+    <!-- AppBar con Toolbar (barra superior de la app) -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.v7.widget.Toolbar
+        <!--
+            AppBarLayout actúa como un contenedor para la Toolbar.
+            Permite comportamientos como ocultarse al hacer scroll (cuando se usa con RecyclerView).
+
+            🔸 Antes se usaba ActionBar por defecto, pero era difícil de personalizar.
+            Ahora usamos Toolbar, que se comporta como una barra superior personalizable.
+        -->
+
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways" />
 
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:layout_scrollFlags="scroll|enterAlways"
-            />
+        <!--
+            La Toolbar se configura como barra de acciones.
+            El atributo `layout_scrollFlags` indica que la barra se oculta al hacer scroll hacia abajo y
+            reaparece al subir ("enterAlways").
 
-    </android.support.design.widget.AppBarLayout>
+            🔸 ¿Por qué Toolbar? Porque reemplaza a ActionBar y permite colocarse en cualquier parte
+            del layout, usar íconos personalizados, e incluso ocultarse fácilmente.
+        -->
+    </com.google.android.material.appbar.AppBarLayout>
 
-
+    <!-- Contenido principal de la pantalla -->
     <include layout="@layout/content_main" />
 
-    <android.support.design.widget.FloatingActionButton
+    <!--
+        Este include carga otro layout XML llamado content_main.xml.
+        Allí generalmente va el RecyclerView o el contenido principal.
+        Se separa en otro archivo para mantener el código organizado.
+    -->
+
+    <!-- Botón flotante de acción -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:layout_margin="16dp"
+        android:contentDescription="@string/fab_transformation_scrim_behavior"
+        android:src="@android:drawable/ic_dialog_email"
+        app:backgroundTint="@color/colorAccent" />
 
+    <!--
+        Este es un FloatingActionButton (FAB), un botón circular flotante muy usado
+        en Material Design para representar una acción principal (como agregar, enviar, etc.).
 
-</android.support.design.widget.CoordinatorLayout>
+        🔸 `layout_gravity="bottom|end"` lo ubica en la esquina inferior derecha.
+        🔸 `src` define el ícono dentro del botón.
+        🔸 `backgroundTint` cambia el color del fondo del botón.
+
+        🔸 Antes no existía FAB como componente propio y se usaban `ImageButton` flotantes
+        posicionados manualmente, lo cual era más complejo de manejar.
+
+        🔸 El FAB es parte de Material Design, una guía moderna de diseño visual y de interacción.
+    -->
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--🧠 ¿Qué se hacía antes y por qué era un problema?
+Antes (deprecated)	Ahora (moderno y recomendado)
+RelativeLayout/LinearLayout para todo	Ahora usamos CoordinatorLayout, ConstraintLayout, etc., que ofrecen más control y eficiencia.
+ActionBar	Reemplazado por Toolbar, que permite personalización y comportamiento dinámico.
+ImageButton flotante	Reemplazado por FloatingActionButton, integrado con Material Design.
+Todo en un solo XML	Ahora se usa include para separar lógica visual y mantener el código limpio.-->

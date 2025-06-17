@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Declaración estándar XML para indicar la codificación UTF-8 -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+    <!--
+        LinearLayout es un contenedor que organiza sus elementos hijos en una columna (vertical)
+        match_parent en ancho y alto indica que ocupa todo el espacio disponible del padre.
 
-
+        Antes se usaban otros layouts como RelativeLayout o FrameLayout, pero LinearLayout
+        es muy sencillo para estructuras verticales y mejora la legibilidad del diseño.
+    -->
 
     <TextView
-
         android:textSize="30sp"
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hola mundo"
-        android:padding="10dp"
-        />
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Hola mundo"
+    android:padding="10dp"/>
+
+    <!-- Tamaño del texto en 'sp' (scaled pixels), para que se adapte a la configuración de fuente del dispositivo -->
+    <!-- Identificador único para acceder desde el código Java/Kotlin -->
+    <!-- Ancho ocupa todo el ancho disponible -->
+    <!-- Alto se ajusta al contenido del texto -->
+    <!-- Texto que se muestra por defecto -->
+    <!-- Espaciado interno alrededor del texto para que no quede pegado a los BORDES-->
+
+    <!--
+        TextView es un widget que muestra texto simple.
+        Se usa para mostrar el contenido principal de cada elemento de la lista (en este caso el título).
+        Usar padding en lugar de margin aquí mejora el diseño interno del componente.
+    -->
 
     <View style="@style/Divider"/>
+    <!--
+        Este View actúa como un divisor visual (línea separadora) entre elementos de la lista.
+        Está usando un estilo personalizado "@style/Divider", que probablemente define
+        altura, color y margen para simular una línea delgada.
+
+        Antes se usaban imágenes o dibujados manuales para divisores, lo que complicaba el mantenimiento.
+        Con este View simple y estilos se consigue un diseño limpio y reutilizable.
+    -->
+
 </LinearLayout>

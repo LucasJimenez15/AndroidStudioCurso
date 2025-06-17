@@ -1,1 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "EjemploRecyclerView"
 include ':app'
+
+/*'C:\Users\lucas\Desktop\Desarrollo de apps nativas para Android, con Android Studio\Android-Studio-Aplicaciones\aplicaciones\EjemploRecyclerView\app' is not part of the build defined by settings file 'C:\Users\lucas\Desktop\Desarrollo de apps nativas para Android, con Android Studio\Android-Studio-Aplicaciones\aplicaciones\EjemploRecyclerView\settings.gradle'. If this is an unrelated build, it must have its own settings file.
+* Este error indica que la carpeta app no está incluida en el archivo settings.gradle de tu proyecto. Por eso Gradle dice que la carpeta app no forma parte del build.
+* ¿Por qué pasa esto?
+Cuando creas un proyecto Android con módulos (como el módulo app), este módulo debe estar declarado en el settings.gradle para que Gradle lo reconozca como parte del proyecto. Si no está declarado, Gradle piensa que no pertenece a este build.
+* */

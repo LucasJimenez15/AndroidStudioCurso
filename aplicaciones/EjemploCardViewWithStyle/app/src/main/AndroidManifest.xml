@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Archivo de manifiesto principal que contiene toda la configuración global de la app -->
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <!--
+            Nodo <application> define los ajustes generales de la aplicación.
+            - allowBackup: Permite a Android hacer copia de seguridad de los datos.
+            - icon: Ícono visible en el lanzador del dispositivo.
+            - label: Nombre que verá el usuario en la pantalla principal.
+            - supportsRtl: Soporte para idiomas que se escriben de derecha a izquierda (como árabe).
+            - theme: Tema visual general de la aplicación.
+        -->
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <!--
+                Este nodo <activity> representa una pantalla (MainActivity).
+                - name: Clase Java/Kotlin que representa la actividad principal.
+                - label: Nombre de la actividad visible al usuario.
+                - theme: Tema específico para esta actividad (sin barra superior).
+                - exported: Desde Android 12 se requiere para que la actividad pueda ser accedida desde fuera.
+                - screenOrientation: Fuerza a que la pantalla solo funcione en orientación vertical (portrait).
+            -->
 
             <intent-filter>
+                <!--
+                    Un intent-filter indica que esta actividad será la primera en ejecutarse
+                    cuando se abra la app desde el icono.
+                -->
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Acción MAIN indica que es la entrada principal de la aplicación -->
+
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Categoría LAUNCHER indica que la actividad debe aparecer en el menú del dispositivo -->
             </intent-filter>
+
         </activity>
 
     </application>

@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <set xmlns:android="http://schemas.android.com/apk/res/android">
-        <translate
-            android:fromXDelta="100%p"
-            android:toXDelta="0"
-            android:duration="3000"/>
-        <alpha android:fromAlpha="0.0"
-            android:toAlpha="1.0"
-            android:duration="3000" />
+<!-- Este es un archivo de animación XML, utilizado para animar vistas en Android.
+ En este caso, define una animación compuesta (set), que combina dos animaciones:
+ una de movimiento horizontal (translate) y otra de aparición progresiva (alpha). -->
 
-    </set>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ANIMACIÓN DE TRASLACIÓN (Translate):
+         Hace que la vista se mueva desde la derecha hacia su posición final.
+
+         fromXDelta="100%p" → empieza fuera de la pantalla (100% del ancho del padre)
+         toXDelta="0"       → termina en su posición original
+         duration="3000"    → la animación dura 3 segundos (3000 milisegundos) -->
+    <translate
+        android:duration="3000"
+        android:fromXDelta="100%p"
+        android:toXDelta="0" />
+
+    <!-- ANIMACIÓN DE ALFA (Alpha):
+         Hace que la vista aparezca gradualmente, es decir, que pase de transparente a visible.
+
+         fromAlpha="0.0" → comienza completamente invisible
+         toAlpha="1.0"   → termina completamente visible
+         duration="3000" → coincide con la duración del translate (opcional, pero recomendable) -->
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+
+</set>
+
+    <!--✅ ¿Qué hace esta animación?
+    Cuando se aplica a una vista (por ejemplo, una tarjeta del RecyclerView): Se desliza desde la derecha (fuera de la pantalla) hacia su lugar normal. Se va volviendo visible mientras se mueve.
+
+    Todo eso en 3 segundos (3000 milisegundos).
+
+    💡 ¿Por qué se usa esto hoy?
+    Antes de Android RecyclerView, animar listas era muy limitado o requería librerías externas. Con RecyclerView y AnimationUtils, se pueden aplicar animaciones personalizadas fácilmente a cada ítem. Esto mejora la experiencia del usuario, haciendo que la interfaz se vea más fluida y profesional.-->
+
+    <!--
+        ▪ translate: Mueve un elemento desde un punto a otro (animación de desplazamiento).
+           Ejemplo: que un botón aparezca deslizando desde la derecha.
+    -->
+
+    <!--
+        ▪ alpha: Cambia la opacidad (transparencia).
+           Ejemplo: hacer que un texto aparezca o desaparezca suavemente (fade in / fade out).
+    -->
+
+    <!--
+        ▪ scale: Cambia el tamaño (escala) de un elemento.
+           Ejemplo: al hacer clic en un ícono, este crece un poco como efecto de “pulso”.
+    -->
+
+    <!--
+        ▪ rotate: Rota un elemento alrededor de un punto.
+           Ejemplo: una flecha que gira para indicar que un panel se desplegó.
+    -->
+
+    <!--
+        ▪ set: Permite combinar varias animaciones al mismo tiempo o en secuencia.
+           Ejemplo: que un botón se desplace y a la vez se desvanezca (translate + alpha).
+    -->
+
+    <!--
+        ▪ interpolator: Controla la velocidad o ritmo de una animación.
+           Ejemplo: accelerate, decelerate, bounce, etc.
+           Sirve para que una animación se vea más natural o divertida.
+    -->
+
+    <!--
+        ▪ property animation (en Java/Kotlin): Permite animar cualquier propiedad (color, posición, tamaño, etc.).
+           Más flexible y moderna, ideal para animaciones complejas.
+    -->
+

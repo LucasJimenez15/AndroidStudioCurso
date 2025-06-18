@@ -1,6 +1,26 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- Este archivo contiene definiciones de dimensiones reutilizables para tu app.
+         Se define en la carpeta "res/values" y permite centralizar tamaños en un solo lugar. -->
+
+    <!-- activity_horizontal_margin:
+         Define el margen horizontal estándar (izquierda y derecha) para las actividades.
+         Valor: 16dp → 16 "density-independent pixels", que se adaptan automáticamente a diferentes resoluciones.
+         Siguiendo las guías de diseño de Android, este margen da un espacio adecuado al contenido para que no quede pegado a los bordes. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <!-- activity_vertical_margin:
+         Define el margen vertical estándar (arriba y abajo).
+         También usa 16dp como valor base, proporcionando simetría con el margen horizontal. -->
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- fab_margin:
+         Este margen se usa normalmente para el botón flotante (Floating Action Button, o FAB).
+         Sirve para separar el botón de los bordes de la pantalla, respetando el diseño visual.
+         16dp es un margen común que funciona bien tanto en pantallas chicas como medianas. -->
     <dimen name="fab_margin">16dp</dimen>
 </resources>
+
+<!--✅ ¿Por qué usamos dimens.xml hoy?
+✔ Reutilización: Definís el valor una sola vez, lo usás en todas partes con @dimen/nombre.
+✔ Mantenimiento más fácil: Cambiás un valor en dimens.xml y se actualiza automáticamente en toda la app.
+✔ Adaptabilidad: Podés crear variantes como values-sw600dp/dimens.xml o values-land/dimens.xml para adaptar márgenes según el tamaño de la pantalla o la orientación.-->

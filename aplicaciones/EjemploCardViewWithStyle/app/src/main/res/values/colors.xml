@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Este archivo XML define una lista de colores reutilizables en la app.
+     Se encuentra en: res/values/colors.xml
+     Es una práctica recomendada centralizar los colores acá para facilitar el mantenimiento,
+     personalización, soporte de temas (modo oscuro/claro), y cambios futuros. -->
+
 <resources>
+
+    <!-- colorPrimary: es el color principal de la app.
+         Se utiliza por defecto en la Toolbar, botones, etc.
+         Este color (#3F51B5) es un tono azul (índice 500) del sistema de diseño Material Design. -->
     <color name="colorPrimary">#3F51B5</color>
+
+    <!-- colorPrimaryDark: es una versión más oscura del color principal.
+         Se usa principalmente para la barra de estado (status bar).
+         Ayuda a mantener la coherencia visual al oscurecer la parte superior de la pantalla. -->
     <color name="colorPrimaryDark">#303F9F</color>
+
+    <!-- colorAccent: es el color que resalta elementos secundarios como botones flotantes (FAB),
+         campos de texto activos, switches, etc.
+         Este rosa brillante (#FF4081) también es parte del esquema Material Design. -->
     <color name="colorAccent">#FF4081</color>
+
 </resources>

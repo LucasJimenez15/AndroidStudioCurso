@@ -1,13 +1,28 @@
 package josedlujan.compras.de.lista.app.com.ejemplocardview;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.content.Context;
+
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.junit.Assert.*;
 
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * Clase de prueba básica para verificar el contexto de la aplicación.
+ * Esta clase reemplaza el uso obsoleto de ApplicationTestCase.
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
-        super(Application.class);
+@RunWith(AndroidJUnit4.class)
+public class ApplicationTest {
+
+    @Test
+    public void testUseAppContext() {
+        // Obtenemos el contexto de la aplicación bajo prueba
+        Context appContext = ApplicationProvider.getApplicationContext();
+
+        // Verificamos que el nombre del paquete sea el esperado
+        assertEquals("josedlujan.compras.de.lista.app.com.ejemplocardview", appContext.getPackageName());
     }
 }

@@ -1,36 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--
+    Este es el archivo de diseño principal de la pantalla (actividad) de la app.
+    Está hecho en XML y define cómo se van a ver los elementos visuales (la interfaz).
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+    <!--
+        CoordinatorLayout es un contenedor muy poderoso. sirve para coordinar los diferenes layouts para las diferentes animaciones
+        Sirve para coordinar el comportamiento de los elementos que tiene dentro. Por ejemplo, permite que una barra se oculte cuando uno baja haciendo scroll,
+        o que el botón flotante se mueva automáticamente cuando algo lo tapa.
+    -->
 
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+        <!--
+            AppBarLayout se usa para contener elementos que van en la parte superior de la app, como la barra de título o de navegación.
+            Además, permite que estos elementos puedan ocultarse o mostrarse
+            cuando uno hace scroll (sube o baja en la pantalla).
+        -->
 
-    <!-- <include layout="@layout/content_main" />-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <android.support.v7.widget.RecyclerView
+        <!--
+            Toolbar es la barra de herramientas superior que muestra el nombre de la actividad, botones de menú o navegación.
+            Es más flexible que la antigua ActionBar y se puede personalizar.
+            En este caso, se le da un fondo con el color principal de la app.
+        -->
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--
+        Este RecyclerView es como una lista moderna y eficiente.
+        Permite mostrar muchos elementos (como tarjetas, imágenes, textos)
+        de forma rápida, incluso si hay cientos.
+
+        El atributo layout_behavior sirve para que funcione bien con el AppBarLayout.
+        Por ejemplo, que la Toolbar se esconda cuando uno baja.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.FloatingActionButton
+    <!--
+        Este es un botón flotante (FloatingActionButton), es redondo y se ubica
+        en la parte inferior derecha de la pantalla.
+        Se usa para acciones importantes, como agregar algo nuevo, enviar un mensaje, etc.
+
+        layout_gravity define su posición (abajo a la derecha).
+        layout_margin define el espacio que deja respecto al borde.
+        android:src define el ícono que va adentro del botón (en este caso, un sobre de correo).
+        contentDescription sirve para personas con discapacidad visual (accesibilidad).
+    -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="Botón para enviar correo"
         android:src="@android:drawable/ic_dialog_email" />
 
-</android.support.design.widget.CoordinatorLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

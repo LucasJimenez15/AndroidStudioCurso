@@ -27,8 +27,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <!--
-            AppBarLayout actúa como un contenedor para la Toolbar.
-            Permite comportamientos como ocultarse al hacer scroll (cuando se usa con RecyclerView).
+            AppBarLayout actúa como un contenedor para la Toolbar. Permite comportamientos como ocultarse al hacer scroll (cuando se usa con RecyclerView).
 
             🔸 Antes se usaba ActionBar por defecto, pero era difícil de personalizar.
             Ahora usamos Toolbar, que se comporta como una barra superior personalizable.

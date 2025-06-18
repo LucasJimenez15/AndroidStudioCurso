@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
 
     // Arreglo de Strings que contiene los datos que se mostrarán en la lista.
-    // En una app real, esto sería una lista de objetos más complejos (por ejemplo, usuarios, productos, etc.) Y podria ser recuperada desde un web service o un json y luego parseralo a un tipo de dato que podamos manejar, base de datos, etc...
+    // En una app real, esto sería una lista de objetos más complejos (por ejemplo, usuarios, productos, etc.) Y podria ser recuperada desde un web service o un json y luego parseralo a un tipo de dato mediante una clase para que lo podamos manejar, o atravez de base de datos, etc...
     String[] Data = new String[]{
             "Elemento 1", "Elemento 2", "Elemento 3", "Elemento 4",
             "Elemento 5", "Elemento 6", "Elemento 7", "Elemento 8",
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Obtenemos la referencia del Toolbar (barra superior de navegación) desde el layout.
-        // El Toolbar es una mejora moderna sobre la antigua ActionBar, permitiendo mayor personalización.
+        // El Toolbar es una mejora moderna sobre la antigua ActionBar, permitiendo mayor personalización. el toolbar sirve para dar ciertos efectos
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         // Establece el toolbar como la barra de acción (action bar) de la actividad.
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv);
 
         // Definimos el LayoutManager como uno lineal vertical (como una lista).
-        // Podría ser también horizontal o un grid. El LayoutManager es obligatorio.
+        // Podría ser también horizontal o un grid. El LayoutManager es obligatorio. y para lo que sirve es que es como el administrador del layout y  le dice como se ubicara horizontal o vertical
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         // Creamos el adaptador, que toma el arreglo de Strings y lo usa para llenar el RecyclerView.
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         // Establece una animación por defecto para cuando los elementos cambian, se agregan o eliminan.
-        // Es opcional, pero ayuda a que la interfaz se vea más fluida.
+        // Es opcional, pero ayuda a que la interfaz se vea más fluida. sirve para crear una animacion
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         // Obtenemos una referencia al botón flotante (FAB) definido en el layout.

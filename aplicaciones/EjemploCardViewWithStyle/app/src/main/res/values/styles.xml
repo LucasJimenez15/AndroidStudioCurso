@@ -1,19 +1,84 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!--
+        Aquí definimos los estilos (themes) que usará nuestra aplicación.
+        Un style/theme agrupa atributos visuales que se aplican a toda la app
+        o a elementos específicos, para mantener una apariencia consistente.
+
+        Android tiene un sistema de temas que permite cambiar colores, fuentes,
+        tamaños, etc. Esto es importante porque antes, los desarrolladores
+        tenían que configurar cada componente visual de forma individual,
+        lo que resultaba en apps inconsistentes y difíciles de mantener.
+    -->
+
+    <!--
+        Estilo base de la aplicación que hereda de Theme.AppCompat.Light.DarkActionBar.
+        Esto significa:
+        - Usa un tema claro (Light).
+        - Incluye una barra de acción (ActionBar) con texto oscuro o claro según el fondo.
+        - Permite usar componentes modernos de compatibilidad para versiones antiguas.
+
+        Al crear un tema base, definimos los colores principales (primary, primaryDark, accent)
+        para que toda la app use una paleta coherente, y Android lo maneje automáticamente
+        en botones, barras, indicadores, etc.
+    -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!--
+            colorPrimary: Color principal para la barra de acción, encabezados, etc.
+            Se usa para elementos importantes para dar identidad visual a la app.
+        -->
         <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!--
+            colorPrimaryDark: Variante más oscura del colorPrimary.
+            Se usa para la barra de estado (status bar) en dispositivos que la soportan.
+        -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!--
+            colorAccent: Color usado para elementos de énfasis, como botones flotantes,
+            controles resaltados, indicadores de selección, etc.
+        -->
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!--
+        Tema que desactiva la ActionBar (barra de acción).
+        Antes, si no querías usar ActionBar, debías hacer muchos trucos o crear layouts
+        complicados para simularla o evitarla.
+        Ahora, con este estilo, simplemente se desactiva sin complicaciones.
+
+        Es útil para pantallas que usan una barra personalizada o fullscreen.
+    -->
     <style name="AppTheme.NoActionBar">
+        <!-- No mostrar la ActionBar nativa -->
         <item name="windowActionBar">false</item>
+        <!-- No mostrar el título por defecto -->
         <item name="windowNoTitle">true</item>
     </style>
+
+    <!--
+        Estilos que sirven como overlays (capas superpuestas) para la barra de acción
+        y para ventanas emergentes (popups).
+        Estos temas están basados en temas AppCompat para mantener compatibilidad
+        con versiones anteriores de Android y estilos modernos.
+    -->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!--
+        Estilo personalizado llamado "title", que se puede aplicar a TextViews
+        u otros elementos de texto para uniformizar tamaño y color.
+
+        - android:textSize="20sp": Tamaño del texto en "sp" (scale-independent pixels),
+          que adapta el tamaño según la configuración de accesibilidad del usuario.
+        - android:textColor="@android:color/white": Texto en color blanco puro,
+          útil para títulos en fondos oscuros o barras de acción.
+
+        Antes, era común definir el tamaño y color directamente en cada TextView,
+        lo que dificultaba mantener uniformidad y modificar estilos globalmente.
+        Con este estilo, se mejora la mantenibilidad y coherencia visual.
+    -->
     <style name="title">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/white</item>

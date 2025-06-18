@@ -1,78 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+
+    <!--
+        LinearLayout es un contenedor que organiza sus hijos en una sola columna (vertical).
+        Aquí se usa como contenedor principal del layout para colocar la CardView.
+
+        Antes, para lograr un diseño vertical se usaban RelativeLayouts o AbsoluteLayouts,
+        que podían complicar el posicionamiento y rendimiento. LinearLayout es simple
+        y más eficiente para layouts lineales.
+    -->
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        >
+        app:cardUseCompatPadding="true">
 
+        <!-- Bordes redondeados del CardView, para estilo moderno -->
+        <!-- Sombra para dar efecto de profundidad (Material Design) -->
+        <!-- Añade padding para que la sombra no se corte en versiones antiguas -->
+
+        <!--
+            CardView es un widget que simula una "tarjeta" con sombra y esquinas redondeadas,
+            siguiendo las pautas de Material Design.
+
+            Antes no existía CardView y había que usar imágenes o fondos personalizados con
+            formas y sombras, lo que complicaba la interfaz y reducía la consistencia.
+            CardView facilita el uso uniforme de estas tarjetas con buen rendimiento.
+        -->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:orientation="vertical"
+            android:padding="5dp">
+            <!--
+                RelativeLayout permite posicionar elementos relativos entre sí, más flexible que LinearLayout.
 
-            android:padding="5dp"
-            >
+                Se fija altura fija de 300dp para la tarjeta para que todos los items tengan tamaño uniforme,
+                lo que facilita un diseño ordenado.
+
+                El padding de 5dp da espacio interior para que los elementos no queden pegados al borde.
+            -->
+
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/paisaje1"
-                />
+                android:src="@drawable/paisaje1" />
+            <!--
+                Imagen que ocupa todo el ancho y 200dp de alto dentro del card.
+                scaleType "fitXY" hace que la imagen se estire para llenar el espacio,
+                evitando espacios en blanco aunque distorsione ligeramente.
 
-                <TextView
-                    android:id="@+id/title"
-                    android:text="José Dimas Luján Castillo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/title"
-                    android:layout_alignBottom="@+id/image"
-                    android:background="#5c1b1b1b"
-                    android:alpha="0.7"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="bottom"
-                    android:padding="2dp"
-                    />
+                Antes, sin ImageView o con otras técnicas, era difícil manejar imágenes
+                con tamaño adaptable en listas y tarjetas, y CardView ayuda a dar estructura.
+            -->
 
-                <TextView
-                    android:id="@+id/twitter"
-                    android:text="Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textColor="#000000"
-                    />
+            <TextView
+                android:id="@+id/title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/image"
+                android:layout_centerVertical="true"
+                android:layout_gravity="bottom"
+                android:alpha="0.7"
+                android:background="#5c1b1b1b"
+                android:padding="2dp"
+                android:text="José Dimas Luján Castillo" />
+
+            <!-- Fondo semitransparente negro para mejorar legibilidad -->
+            <!-- Transparencia para que se vea algo de la imagen debajo -->
 
 
+            <!--
+                Este TextView muestra el título o nombre.
+                Está posicionado para que quede alineado abajo de la imagen.
 
+                La sombra semitransparente y el alpha ayudan a que el texto sea visible
+                sobre la imagen, mejorando la experiencia de lectura.
 
+                Antes era difícil lograr este efecto sin complicadas capas o imágenes de fondo,
+                con RelativeLayout y estas propiedades es mucho más sencillo.
+            -->
 
+            <TextView
+                android:id="@+id/twitter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:text="Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, Este Texto es para probar solamente, "
+                android:textColor="#000000" />
 
+            <!--
+            Este TextView está posicionado en la parte inferior del RelativeLayout,
+                mostrando texto descriptivo o adicional.
 
+                Se alinea al borde izquierdo (start) para respetar idioma y diseño.
+
+                El color negro (#000000) para que contraste con fondo blanco del CardView.
+            -->
         </RelativeLayout>
-
-
-
-
-
-
-
-
-    </android.support.v7.widget.CardView>
-
-
-
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

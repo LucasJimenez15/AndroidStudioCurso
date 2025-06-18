@@ -20,11 +20,8 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
     /**
      * Método que se encarga de crear una nueva vista (ViewHolder) para un ítem de la lista.
      * Es como "inflar" el diseño XML que representa un solo elemento.
-     *
      * Este método se llama solo cuando se necesita una nueva vista (no reciclada).
-     *
-     * ANTES: en ListView, se usaba `getView()`, pero no era tan eficiente ni modular como esto.
-     */
+     * ANTES: en ListView, se usaba `getView()`, pero no era tan eficiente ni modular como esto.*/
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Aquí debería inflarse el layout XML de un ítem y crear el ViewHolder.

@@ -1,0 +1,89 @@
+✅ Las 3 formas principales de almacenar datos en Android
+https://developer.android.com/training/data-storage?hl=es-419
+----------------------------------------------------------------------------
+
+1. SharedPreferences
+¿Qué es? Es un sistema para guardar datos pequeños y simples, como configuraciones, nombres de usuario, o si un usuario ya inició sesión. Este es el tipo de preferencia que vemos aqui.
+¿Qué guarda? Solo tipos de datos simples: String, int, boolean, etc.
+¿Dónde se guarda? En un archivo XML interno, que Android gestiona automáticamente.
+
+¿Cuándo se usa? Para cosas como:
+👉 "¿El usuario activó el modo oscuro?"
+👉 "¿Ya vio el tutorial la primera vez?"
+
+Ventajas: Muy fácil de usar. Perfecto para guardar pocos datos rápidamente.
+
+----------------------------------------------------------------------------------------------------------------------
+
+2. Archivos (Files)
+¿Qué es? Escribir archivos como en una PC: .txt, .json, .csv, etc. Puedes usar openFileOutput() y File.
+
+¿Cuándo se usa? Cuando necesitás guardar texto plano o binario, como:
+👉 Documentos descargados
+👉 Fotos, sonidos
+👉 Archivos de configuración personalizados
+
+Ventajas: Flexible, podés guardar cualquier cosa. Accesible como en un sistema de archivos común.
+
+Desventajas: Tenés que manejar vos mismo el formato, errores y seguridad.
+
+----------------------------------------------------------------------------------------------------------------------
+
+3. Bases de datos SQLite / Room
+¿Qué es? Android trae SQLite, una base de datos ligera es una libreria no un motor de base de datos. Room es una librería moderna que simplifica su uso con anotaciones (@Entity, @Dao). Sqlite permite manejar una base de datos ligera usando archivos locales. No necesita un servidor ni un proceso separado funcionando en segundo plano. La base de datos está directamente embebida en la app. En cambio, motores como MySQL o PostgreSQL son programas completos que corren como servicios en un servidor, y las apps se conectan a ellos vía red o localmente para hacer consultas.
+
+¿Cuándo se usa? Cuando tenés muchos datos relacionados, como:
+👉 Lista de productos en un carrito
+👉 Tareas con categorías
+👉 Aplicaciones de notas
+
+Ventajas: Muy eficiente para muchos datos. Puedes hacer búsquedas, filtros, relaciones.
+Room vs SQLite directo: Room es más seguro y moderno. Evita muchos errores y hace el código más limpio.
+
+----------------------------------------------------------------------------------------------------------------------
+
+❌ ¿Por qué no se usan motores de bases de datos grandes en Android (como MySQL, PostgreSQL)?
+🔹1. Tamaño y complejidad : Motores como MySQL están pensados para servidores grandes Y que tienen la capacidad de responder a muchas solicitudes al mismo tiempo. Tienen muchos componentes que no son necesarios en un celular.
+Por dar un ejemplo la cantiadad de usuarios que tiene un telefono son 1 y los motores manejan mas de uno
+
+🔹2. Consumo de recursos : Gastan mucha RAM, CPU y batería. Un celular necesita eficiencia, no potencia bruta como un servidor.
+
+🔹3. No están diseñados para Android: Android ya viene con SQLite, que es ligero y optimizado para móviles.
+Instalar otros motores implicaría meter muchos archivos pesados y difíciles de mantener.
+
+🔎 Conclusión
+Android prefiere soluciones ligeras y rápidas. Por eso usamos: SharedPreferences para datos simples. Archivos para guardar lo que sea. SQLite o Room para datos estructurados. Y si se necesita compartir datos entre usuarios o apps, lo ideal es conectarse a una base de datos remota en un servidor, no dentro del celular.
+
+----------------------------------------------------------------------------------------------------------------------
+✅✅✅ SharedPreferences en Android es una interfaz de Java que forma parte del framework de Android definida dentro del paquete android.content. que te permite almacenar pares clave-valor de datos de forma persistente, es decir, los datos se guardan incluso si cierras o apagas la app. (Este usa los tokens explicado mas abajo)
+
+Por ejemplo: Podés guardar "usuario=Lucas" o "modoOscuro=true" y luego recuperar esos valores cuando abras la app de nuevo.
+
+¿Qué significa "clave-valor"? Es como una etiqueta (la clave) y su contenido (el valor). Ejemplo:
+
+"usuario" → "Lucas"
+"notificaciones" → true
+
+¿Para qué sirve? Sirve para guardar configuraciones o datos simples del usuario: El nombre o email, Si el usuario ya vio el tutorial inicial, Estado de sesión (logueado o no), Preferencias como idioma o temas
+
+¿Dónde guarda esa información? En archivos XML internos del sistema Android, que tu app puede leer y modificar, pero que otras apps no pueden ver.
+
+En resumen: SharedPreferences es una herramienta de Android para guardar datos simples, como configuraciones del usuario, de forma permanente usando pares clave-valor.
+
+----------------------------------------------------------------------------------------------------------------------
+
+🎯🎯🎯 Un token es un valor que se genera (Por ejemplo algo como un hash H245sdkfg4FDk332) cuando un usuario se autentica en una aplicación o sistema, y sirve para identificarlo de manera segura durante un tiempo determinado. En lugar de enviar el usuario y la contraseña cada vez que se hace una petición, se envía este token, lo que hace que el sistema pueda reconocer quién es el usuario y qué permisos tiene.
+
+Este mecanismo se utiliza mucho en aplicaciones web y móviles, especialmente cuando se accede a servicios protegidos o APIs. El token actúa como una llave temporal que autoriza al usuario a realizar acciones sin tener que volver a iniciar sesión constantemente.
+
+Uno de los tipos más comunes de token es el JWT (JSON Web Token), que además de identificar al usuario, puede incluir información como su rol, el tiempo de expiración, y más. Esto mejora la seguridad y el rendimiento del sistema.
+
+En resumen, un token es una forma moderna y segura de mantener la sesión de un usuario activa sin tener que enviar datos sensibles en cada petición.
+
+📌 Sí, ese token de acceso personal (PAT) que te pide GitHub es un tipo de token de autenticación, muy parecido a los tokens que usan las apps para identificar a un usuario ya logueado. Sirve para proteger tu cuenta y dar acceso seguro a servicios automatizados o externos.
+
+----------------------------------------------------------------------------------------------------------------------
+En Android, el contexto (Context) es un objeto que representa el entorno o situación actual de tu app. Resumidamente, sirve para acceder a cosas del sistema como: recursos (getResources()), archivos (openFile()), preferencias (getSharedPreferences()), iniciar actividades o servicios (startActivity(), startService()).
+
+En pocas palabras: 👉 Context es como el "puente" entre tu código y el sistema Android. Sin él, no podrías hacer casi nada en tu app.
+----------------------------------------------------------------------------------------------------------------------

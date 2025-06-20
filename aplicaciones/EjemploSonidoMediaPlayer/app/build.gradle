@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 35
     buildToolsVersion "22.0.1"
+    namespace 'josedlujan.compras.de.lista.app.com.EjemploSonidoMediaPlayer'
 
     defaultConfig {
         applicationId "josedlujan.app.primera.mi.com.ejemplosonidomediaplayer"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:22.2.0'
 }

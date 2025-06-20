@@ -1,0 +1,54 @@
+------------------------------------------------------------------------------------------
+¿Qué es .kts?
+.kts significa Kotlin Script.
+Es la forma moderna de escribir scripts de Gradle usando Kotlin en lugar de Groovy (el lenguaje tradicional).
+
+Antes: Groovy DSL (build.gradle)
+Históricamente, Gradle usaba archivos .gradle escritos en Groovy para definir la configuración de proyectos. Ejemplo de archivo: build.gradle
+
+Groovy es dinámico, flexible, pero no es un lenguaje tipado estáticamente y la autocompletación en IDEs (Android Studio, IntelliJ) no es tan buena.
+
+------------------------------------------------------------------------------------------
+Ahora: Kotlin DSL (build.gradle.kts)
+Desde hace algunos años, Gradle ofrece una alternativa usando Kotlin DSL, que usa Kotlin como lenguaje para los scripts. Archivos: build.gradle.kts
+
+Ventajas de Kotlin DSL:
+
+Tipado estático: Android Studio te ayuda con autocompletado, detección de errores al escribir, refactorizaciones seguras. Más seguro y robusto: menos errores sutiles en configuración.
+Integración natural en proyectos Android que usan Kotlin (muy común hoy en día). Mejor experiencia para quienes ya conocen Kotlin.
+
+------------------------------------------------------------------------------------------
+¿Por qué a ti te apareció .kts?
+Puede que hayas creado un nuevo proyecto con Android Studio y la plantilla usó Kotlin DSL por defecto.
+O que migraste tu build.gradle a Kotlin DSL para aprovechar sus beneficios. Las últimas versiones de Android Studio y del plugin de Gradle recomiendan usar .kts para aprovechar las ventajas del tipado y tooling.
+
+------------------------------------------------------------------------------------------
+¿Puedo seguir usando Groovy? ¿Cuál elegir?
+Sí, puedes seguir usando build.gradle con Groovy sin problema, sobre todo en proyectos antiguos.
+
+Pero la recomendación actual es usar .kts para proyectos nuevos o cuando quieres mejor soporte de IDE y código más limpio. En algunos casos, las librerías y plugins se adaptan primero a Kotlin DSL.
+
+------------------------------------------------------------------------------------------
+¿Qué cambia en tu código?
+Sintaxis: Kotlin DSL usa sintaxis Kotlin, por ejemplo:
+
+Groovy:
+android {
+    compileSdkVersion 35
+}
+
+Kotlin DSL:
+android {
+    compileSdk = 35
+}
+------------------------------------------------------------------------------------------
+
+Manejo de listas y propiedades es más explícito (como pickFirsts.add(...) en vez de pickFirst(...)).
+
+Resumen:
+Característica	Groovy DSL (build.gradle)	Kotlin DSL (build.gradle.kts)
+Lenguaje	Groovy (dinámico)	Kotlin (tipado estático)
+Autocompletado IDE	Limitado	Mejor y más completo
+Popularidad actual	Muy usado, legado	Creciente, recomendado para nuevo
+Sintaxis	Más flexible, menos estricta	Más estricta, más clara
+------------------------------------------------------------------------------------------

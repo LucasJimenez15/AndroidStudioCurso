@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">layout_linear_horizontal</string>
+    <string name="txt_nombre">Nombre:</string>
+    <string name="btn_saludar">Saludar</string>
+</resources>

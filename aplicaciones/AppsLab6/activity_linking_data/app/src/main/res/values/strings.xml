@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">acrtivity_linking_data</string>
+    <string name="txt_resultado">Valor Retornado:</string>
+    <string name="btn_restar">Restar</string>
+    <string name="btn_sumar">Sumar</string>
+    <string name="btn_retornar">Retornar Resultado</string>
+    <string name="txt_operando1">Primer Operando</string>
+    <string name="txt_operando2">Segundo Operando</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">buttons</string>
+    <string name="msg_presiono_boton">Se presiono el boton</string>
+</resources>

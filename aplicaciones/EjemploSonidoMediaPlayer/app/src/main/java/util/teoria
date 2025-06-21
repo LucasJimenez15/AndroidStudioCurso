@@ -1,3 +1,37 @@
+.ogg es un formato de audio comprimido libre de patentes no como mp3 que si tiene dueños en cambio este no tiene licencias, más liviano que el MP3 y con buena calidad. Android lo soporta nativamente, por eso se usa mucho para efectos de sonido o música en apps. Se coloca en la carpeta res/raw/ con nombres en minúsculas y sin espacios. Para reproducirlo se usa MediaPlayer.create(context, R.raw.sonido).start();. todas las recomendacion de audio y estos formatos se usan tamien en tecnologiass como ios ya que es un formato, este es un formato que puede ser tanto de audio como de video
+
+el directorio raw se crea por nosotros y es donde se guarda todo el contenido multimedia
+
+tambien normalmente nosotros nos centraremos mas en descomprimir estos archivos de audio ya que ese sera nuestro trabajo
+----------------------------------------------------------------------------------------------
+
+MP3 (MPEG-1 Audio Layer III) es un formato de ""compresión"" de audio con pérdida, lo que significa que elimina partes del sonido que el oído humano no percibe fácilmente, para reducir el tamaño del archivo. normalmente acorta o reduce los humbrales mas altos de un sonido o cancion y tambien los humrales mas bajos que no escucha ya algunos humanos.
+
+🎧 Compresión con pérdida: descarta datos menos perceptibles (como sonidos muy bajos en presencia de otros).
+📦 Codificación por cuadros: divide el audio en bloques (frames), cada uno con datos comprimidos más encabezados.
+🧠 Psicoacústica: usa modelos que imitan cómo escuchamos, para decidir qué datos eliminar.
+📄 Sin metadatos visibles: pero puede incluir etiquetas ID3 (título, artista, etc.).
+🔄 Bitrate: puede ser constante (CBR) o variable (VBR). Ej: 128 kbps, 192 kbps, 320 kbps.
+
+En resumen: MP3 reduce el tamaño del audio manteniendo buena calidad, gracias a un algoritmo es decir el algoritmo MP3 lo que elimina información sonora que normalmente no notamos. Ideal para música y ampliamente compatible.
+
+--------------------------------------------------------------------------------------------
+
+En Android, los sonidos se usan comúnmente para efectos, notificaciones o música de fondo. Hay dos formas principales de manejarlos o separarlos dependiendo en la duracion de estos ya que estos podrian sobreescribirse si no es el caso o esperar a que termine uno para poder reproduci otro: MediaPlayer y SoundPool.
+
+MediaPlayer se usa para reproducir archivos de audio completos como música o clips largos (mp3, ogg, wav). Es fácil de usar, pero puede tener algo de retardo en sonidos cortos. Ejemplo:
+
+MediaPlayer mp = MediaPlayer.create(context, R.raw.sonido);
+mp.start();
+
+SoundPool es ideal para reproducir muchos efectos cortos (como disparos o clics) con baja latencia. Carga los sonidos una vez y los puede tocar muchas veces rápidamente.
+Ejemplo:
+
+SoundPool sp = new SoundPool.Builder().setMaxStreams(5).build();
+int sonidoId = sp.load(context, R.raw.click, 1);
+sp.play(sonidoId, 1, 1, 1, 0, 1);
+Los archivos deben ir en la carpeta res/raw/, con nombres en minúsculas y sin caracteres especiales. Los formatos recomendados son .ogg y .wav.
+
 --------------------------------------------------------------------------------------------------------------------
 📱Calidad de sensores en Android y su impacto en apps
 En Android, a diferencia de iOS, hay una gran variedad de fabricantes, como Samsung, Xiaomi, Motorola, etc. Cada uno utiliza sensores distintos (como acelerómetros, giroscopios, sensores de proximidad, etc.) de diferentes calidades y proveedores. Normalmente todos los sensores se basan en la clase Sensor y SensorManager y se utilizan todos igual por lo que no tiene caso ver la mayoria o todos de estos, lo que cambia en estos son los datos que te arrojan

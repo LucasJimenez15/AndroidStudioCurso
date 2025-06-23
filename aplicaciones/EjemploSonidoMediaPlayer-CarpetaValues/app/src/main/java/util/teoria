@@ -89,7 +89,23 @@ Uno de los archivos más comunes que aparece por defecto en esta carpeta es el s
 </resources>
 
 📌 En tu layout: android:text="@string/hello"
-📌 Para traducir, creás carpetas como values-es/strings.xml para español o values-en/strings.xml para inglés.
+📌 Para traducir, creás carpetas como values-es/strings.xml para español o values-en/strings.xml para inglés (las cuales se pueden ver creadas en la perspectiva de proyect), las cuales tendran siempre el mismo nombre y las etiquetas internas el mismo nombre tambien en el atributo name para luego poder referenciarla en el codigo.
+
+-------------------------------------------------------------------------------------------------------
+Aquí tenés una explicación ampliada de los pasos para crear un archivo de strings para los idiomas en Android Studio, cabe aclarar tambien que el telefono es quien escoje el lenguaje para el usuario dependiendo de los archivos strings que haya creados:
+
+- Abrir el proyecto en Android Studio: Asegurate de estar en el proyecto correcto y usando la vista "Android" en el panel izquierdo.
+- Navegar a la carpeta de recursos: Ve a: app > src > main > res > values
+- Crear un nuevo archivo de recursos: Haz clic derecho en la carpeta values y seleccioná: New > Values Resource File
+- Configurar el archivo: En el campo File name, escribí strings (sin extensión, Android Studio lo creará como strings.xml). El Resource type debe quedar como "values" (por defecto). Seleccionar Locale y otras configuraciones (si corresponde): Si necesitás crear estilos específicos para una localización o configuración, ubica la opción "Locale" en el diálogo.
+- Haz clic en la flechita (o en el botón de opciones adicionales) que suele estar al lado de "Locale" para desplegar la lista y elegir el idioma o configuración regional deseada.
+- Esto es útil si querés crear recursos específicos para ciertos idiomas o regiones (por ejemplo, estilos diferentes para una app en inglés y en español).
+
+Finalizar la creación: Una vez configurado el nombre y seleccionada la localización (si aplica), presioná OK.
+Se creará el archivo strings.xml en la carpeta correspondiente a la configuración (por ejemplo, values-es para español).
+
+Con estos pasos habrás creado un archivo de strings en Android Studio, permitiéndote definir y editar estilos de manera organizada según la localización o configuraciones específicas que necesites.
+
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -134,8 +150,7 @@ android:textSize="@dimen/text_size_large"
 5. 📄 ¿Qué es styles.xml?
 Es un archivo ubicado en la carpeta res/values/ que sirve para crear estilos visuales reutilizables en tu app. Un estilo es como una plantilla de diseño que define cómo se verá un componente (como un botón o un texto), incluyendo cosas como: el color de fondo, el tamaño del texto, el color del texto, y el espacio interior (padding).
 
-🧠 ¿Por qué se usa? Porque antes, si querías que varios botones se vieran iguales, tenías que copiar y pegar las mismas propiedades muchas veces.
-Eso hacía tu código más largo, difícil de leer y de modificar. Con styles.xml, podés definir el estilo una sola vez, darle un nombre, y luego usarlo en todos los elementos que quieras.
+🧠 ¿Por qué se usa? Porque antes, si querías que varios botones se vieran iguales, tenías que copiar y pegar las mismas propiedades muchas veces. Eso hacía tu código más largo, difícil de leer y de modificar. Con styles.xml, podés definir el estilo una sola vez, darle un nombre, y luego usarlo en todos los elementos que quieras.
 
 🧪 ¿Cómo funciona? Por ejemplo, en el archivo styles.xml podés definir un estilo así:
 

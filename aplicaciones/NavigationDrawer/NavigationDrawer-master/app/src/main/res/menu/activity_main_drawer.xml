@@ -1,40 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Declaración estándar del archivo XML, define el formato y codificación. -->
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <!-- 🔷 Este es el nodo raíz de un menú XML.
+         El atributo tools:showIn="navigation_view" es solo una indicación para el editor visual (no afecta la ejecución),
+         indicando que este menú será usado en un NavigationView. -->
+
     <group android:checkableBehavior="single">
+        <!-- 🔹 Agrupa los ítems del menú permitiendo que solo uno esté seleccionado a la vez.
+             Muy útil cuando queremos que un ítem quede marcado como activo al navegar. -->
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
+        <!-- 🟢 Ítem del menú que representa la sección "Home".
+             - android:id: ID única para poder identificarlo en la navegación.
+             - android:icon: ícono que se mostrará al lado del texto.
+             - android:title: texto visible (tomado desde strings.xml para facilitar traducciones). -->
+
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
+        <!-- Otra opción del menú, para acceder a la sección "Galería". -->
+
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <!-- Ítem del menú que lleva a una sección tipo "presentación" o "slideshow". -->
 
         <item
             android:id="@+id/nav_contato"
             android:icon="@drawable/ic_nav_email"
             android:title="@string/menu_contato" />
-
+        <!-- Opción que representa la sección "Contacto", probablemente con formulario o email. -->
     </group>
 
     <item android:title="Comunicacion">
+        <!-- 🔸 Este ítem actúa como un encabezado para un submenú.
+             No tiene acción directa, es simplemente un título para agrupar opciones relacionadas. -->
+
         <menu>
+            <!-- Este nodo <menu> anidado contiene los subítems que estarán bajo "Comunicacion". -->
+
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
+            <!-- Opción para compartir contenido (por redes sociales, por ejemplo). -->
+
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_send" />
+            <!-- Opción para enviar algo, como un mensaje o email. -->
         </menu>
     </item>
 
 </menu>
+
+<!--📌 RESUMEN CLAVE
+✅ ¿Qué hace este archivo?
+Define las secciones que aparecen en el menú lateral (Navigation Drawer).
+
+Cada ítem tiene un id que permite vincularlo con una acción o un destino de navegación (como un fragmento).
+
+Usa íconos personalizados (de la carpeta res/drawable) y textos localizados (de strings.xml).
+
+🧠 ¿Cómo se hacía antes?
+En versiones antiguas de Android, para lograr un menú lateral había que usar un ListView o ExpandableListView dentro de un DrawerLayout, y programar todo el comportamiento manualmente en Java.
+
+Había que manejar el estado seleccionado, cambiar fragmentos a mano y muchas veces actualizar el layout a la fuerza.
+
+Con NavigationView y este tipo de menú en XML, el sistema se integra automáticamente con los Navigation Components, haciendo todo más rápido, limpio y modular-->

@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Declaración estándar de XML -->
+
+
+<!--Este archivo XML (mobile_navigation.xml) es el "mapa de navegación" de tu app, también conocido como Navigation Graph. Es fundamental cuando usás Navigation Component, porque le dice a Android qué pantallas (Fragments) existen y cómo navegar entre ellas.-->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+    <!-- 🔷 Este es el nodo raíz del Navigation Graph.
+         Define todas las pantallas (Fragments) entre las que se puede navegar.
+
+         - android:id: Identificador único de este grafo (puede haber más de uno si tu app tiene múltiples flows).
+         - app:startDestination: indica cuál fragmento se mostrará primero al abrir la app (en este caso, nav_home). -->
+
     <fragment
         android:id="@+id/nav_contato"
         android:name="com.cursoandroid.navigationdrawer.ui.contato.ContatoFragment"
         android:label="@string/menu_contato"
         tools:layout="@layout/fragment_contato" />
+
+    <!-- 🔹 Define un destino de navegación.
+         Cada <fragment> representa una pantalla a la que se puede navegar desde el menú.
+         - android:id: el ID único para vincular este destino con el menú del Navigation Drawer.
+         - android:name: ruta completa de la clase del Fragment.
+         - android:label: nombre visible en la Toolbar (se puede mostrar automáticamente).
+         - tools:layout: ayuda al editor visual para previsualizar el layout asociado, no se usa en ejecución. -->
+
+    <!-- 🟢 A continuación, se definen los demás fragmentos de forma similar: -->
 
     <fragment
         android:id="@+id/nav_home"
@@ -40,4 +59,20 @@
         android:name="com.cursoandroid.navigationdrawer.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
 </navigation>
+
+<!--📌 ¿Qué hace este archivo?
+Declara todas las pantallas (Fragments) que tu app puede mostrar. Define cuál es la pantalla inicial.
+Asocia cada Fragment con un ID, un layout, una clase y un texto visible. Permite usar la navegación automática sin tener que escribir código de reemplazo manual.-->
+
+<!--🧠 ¿Cómo se hacía antes?
+Antes del Navigation Component: Había que usar el FragmentManager y FragmentTransaction para reemplazar manualmente fragmentos.
+
+Por ejemplo:
+
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+transaction.replace(R.id.fragment_container, new HomeFragment());
+transaction.commit();
+
+Además, si querías que el botón "Atrás" funcionara, tenías que administrar manualmente la pila de navegación (Back Stack). No era visual, ni modular, ni fácil de mantener.-->

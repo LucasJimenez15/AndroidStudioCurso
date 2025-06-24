@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Esta línea declara que el archivo está en formato XML con codificación UTF-8. -->
+
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,10 +11,23 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!-- 🔷 DrawerLayout es un contenedor especial que permite deslizar un menú lateral (Navigation Drawer).
+         - Es el contenedor raíz de la interfaz principal.
+         - Antes se usaban diseños personalizados con RelativeLayout y animaciones manuales, lo cual era complicado.
+         - DrawerLayout facilita esta funcionalidad con un solo contenedor.
+         - fitsSystemWindows="true" indica que este layout debe considerar los bordes del sistema
+           (barra de estado, navegación, etc.) y ajustar el contenido para no quedar tapado. -->
+
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <!-- 🔹 Incluye otro layout llamado app_bar_main.xml que contiene el contenido principal de la pantalla:
+         - Toolbar (barra superior),
+         - NavHostFragment (zona donde se cargan los fragments según la navegación).
+         - Esto permite modularizar el código y mantener el layout ordenado.
+         - Antes, todo se escribía en un solo archivo XML, lo que lo volvía difícil de mantener. -->
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -22,5 +37,12 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+
+    <!-- 🔸 NavigationView es el menú deslizante que se muestra desde el lado izquierdo.
+         - layout_gravity="start" indica que se posiciona en el borde izquierdo (o derecho en idiomas RTL).
+         - headerLayout define la parte superior del menú (donde normalmente va el nombre del usuario, foto, etc.).
+         - menu se refiere al archivo que define las opciones del menú (como "Inicio", "Galería", etc.).
+         - Antes, este tipo de menú se implementaba con ListView y lógica personalizada en Java, lo que era complejo.
+         - Ahora NavigationView junto a Navigation Components simplifica todo con solo unas líneas. -->
 
 </androidx.drawerlayout.widget.DrawerLayout>

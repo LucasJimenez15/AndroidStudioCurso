@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Declaración estándar del archivo XML para Android. -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
+
+    <!-- 🔷 ConstraintLayout es un layout flexible y moderno que permite posicionar elementos
+         con base en restricciones (constraints). Reemplaza a LinearLayout, RelativeLayout, etc.
+         - Ofrece mejor rendimiento y mayor control visual.
+         - Se está usando aquí como contenedor principal del contenido dinámico. -->
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -17,4 +25,30 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
+
+    <!-- 🔹 Este fragmento especial es el "NavHostFragment", y es el núcleo del sistema de navegación moderna.
+         ¿Qué hace?
+         - Es un contenedor invisible que se encarga de cargar los Fragments según la navegación.
+         - El atributo app:navGraph indica cuál es el archivo de navegación a usar (en este caso mobile_navigation.xml).
+         - app:defaultNavHost="true" indica que esta será la "actividad principal" para capturar eventos de navegación
+           como el botón Atrás (Back).
+
+         🧠 Antes, los fragmentos se cargaban manualmente con FragmentManager y FragmentTransaction,
+             lo que requería escribir código complejo y propenso a errores.
+             Ahora todo esto se maneja automáticamente con Navigation Component. -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--📌 RESUMEN CLAVE
+✅ ¿Qué hace este archivo?
+Define el espacio visual donde se van a mostrar los fragments (como "Home", "Galería", etc.).
+Usa el NavHostFragment, que es parte de la arquitectura moderna de navegación.
+Se conecta con el archivo mobile_navigation.xml (navGraph), donde están definidos todos los destinos (pantallas) de la app.
+
+🧠 ¿Cómo se hacía antes?
+Había que reemplazar manualmente fragmentos en un FrameLayout usando FragmentTransaction.
+El manejo del botón "Atrás", de animaciones y del paso de argumentos era complicado y manual.
+Había más código repetitivo y más posibilidades de errores.
+
+Con Navigation Component:
+Solo se define el NavHostFragment en XML y se crea un grafo de navegación. El sistema se encarga de todo: reemplazos, historial, transiciones, etc.-->

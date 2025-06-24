@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Declaración XML estándar para definir codificación de caracteres. -->
+
+<!--Este archivo XML (app_bar_main.xml) define la estructura visual principal de tu aplicación, específicamente lo que aparece debajo del menú lateral (Navigation Drawer): la barra superior (Toolbar) y el contenido principal-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- 🔷 CoordinatorLayout es un layout especial de la biblioteca Material Design.
+         - Sirve como "coordinador" para gestionar cómo se comportan entre sí diferentes elementos de la UI,
+           como la Toolbar, el FAB (FloatingActionButton), el Snackbar, etc.
+         - Se usa especialmente cuando se desea implementar comportamientos dinámicos como scrolls y animaciones.
+         - Antes se usaban layouts más básicos (como RelativeLayout o LinearLayout) que no permitían este tipo de interacción compleja. -->
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+        <!-- 🔹 AppBarLayout sirve como contenedor para la barra superior (Toolbar), y puede incluir otras vistas como TabLayout.
+             - Facilita el comportamiento de "desaparecer al hacer scroll", entre otros efectos de diseño.
+             - El theme "@style/AppTheme.AppBarOverlay" se aplica solo a esta barra. -->
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -18,8 +32,38 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+        <!-- 🟢 Toolbar es la barra de acciones moderna (reemplaza a la antigua ActionBar).
+             - actionBarSize usa el tamaño estándar de barra.
+             - colorPrimary se usa como fondo, para respetar el tema visual.
+             - popupTheme define el estilo de los menús emergentes (como los de opciones).
+
+             🔁 Antes, se usaba la ActionBar integrada directamente en la Activity,
+                 pero no se podía personalizar fácilmente. Toolbar es mucho más flexible. -->
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
+    <!-- 🔸 Incluye otro layout XML llamado content_main.xml, donde se encuentra el contenido
+         real de la pantalla: generalmente el NavHostFragment donde se cargan los fragments.
+         - Esto permite separar visualmente el diseño: uno para la estructura (este archivo),
+           y otro para el contenido principal (content_main).
+         - Mejora la organización, reutilización y mantenimiento del código. -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--📌 RESUMEN CLAVE
+✅ ¿Qué contiene este archivo?
+Una barra superior (Toolbar) envuelta en un AppBarLayout para controlar su comportamiento con el scroll.
+Una referencia al contenido principal a través de <include layout="@layout/content_main" />.
+
+🧠 ¿Cómo se hacía antes?
+Antes del uso de Toolbar, AppBarLayout y CoordinatorLayout:
+Se usaba la ActionBar de forma predeterminada, lo que dificultaba mucho la personalización.
+No era fácil mostrar/ocultar la barra al hacer scroll, ni integrar con Material Design.
+Los diseños estaban muy mezclados y eran difíciles de mantener y actualizar.
+
+Con esta estructura modular:
+
+Separás responsabilidades: app_bar_main.xml para estructura, content_main.xml para contenido, toolbar para encabezado.
+Ganás en reutilización y claridad.
+La UI se vuelve más dinámica y moderna con mucho menos esfuerzo.-->

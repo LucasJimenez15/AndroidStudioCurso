@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Esta línea define que el archivo es XML y que usará codificación UTF-8. -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Este es el nodo raíz obligatorio en toda app Android.
+         Define el espacio de nombres XML que se usará para referenciar atributos específicos de Android. -->
 
     <application
         android:allowBackup="true"
@@ -8,17 +12,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 🟢 <application> define propiedades globales de la app, como:
+             - el ícono que se mostrará en el dispositivo
+             - el nombre que aparece debajo del ícono
+             - el tema visual por defecto
+             - si permite respaldos automáticos (allowBackup)
+             - si soporta escritura de derecha a izquierda (supportsRtl) -->
+
         <activity
             android:name="com.cursoandroid.navigationdrawer.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- 🟠 <activity> define una pantalla (Activity) dentro de la app.
+                 Esta es la clase Java que se ejecuta al abrir la app.
+                 El atributo exported="true" indica que puede ser lanzada desde fuera de la app,
+                 algo obligatorio en Android 12+ para actividades que inician con un intent-filter. -->
+
             <intent-filter>
+                <!-- 🔷 Este bloque indica que esta actividad será el "punto de entrada" de la app. -->
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Esto define que esta actividad es la principal (Main). -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Esta línea especifica que la actividad debe aparecer en el lanzador de apps (es decir, en el menú del teléfono). -->
             </intent-filter>
         </activity>
     </application>
 
 </manifest>
+
+<!--📌 RESUMEN Y DETALLES IMPORTANTES
+✅ ¿Qué función cumple el AndroidManifest.xml?
+Declara los componentes de la app: actividades (Activity), servicios (Service), receptores (BroadcastReceiver), etc.
+Indica los permisos necesarios (aunque este ejemplo no los tiene).
+Define cuál es la actividad principal, es decir, la primera pantalla que se abre cuando el usuario toca el ícono de la app.
+
+🔄 ¿Qué pasaba antes?
+En versiones antiguas de Android, muchas configuraciones se hacían en código Java.
+Eso dificultaba la detección automática de componentes y requería mucha lógica repetitiva.
+Hoy en día, el Manifest permite que el sistema sepa cómo manejar los componentes de la app desde el arranque, incluso sin abrir clases.
+
+🆕 A partir de Android 12:
+Es obligatorio declarar android:exported="true" o "false" en las actividades que tengan un <intent-filter>, como es el caso aquí.
+Esto ayuda a mejorar la seguridad del sistema operativo, evitando que componentes internos puedan ser lanzados sin control. -->

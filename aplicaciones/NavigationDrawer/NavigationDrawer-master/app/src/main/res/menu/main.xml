@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- este archivo XML define un menú de opciones para tu aplicación Android, y esta es la Declaración estándar del archivo XML. -->
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 🔷 Este es el nodo raíz de un menú en Android.
+         Se utiliza para definir ítems (opciones) que se mostrarán en una barra de menú o en un menú contextual.
+         También se puede usar dentro de un NavigationView o un Toolbar. -->
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
+    <!-- 🔹 Este <item> representa una opción llamada "Settings" o "Configuración".
+         - android:id: identificador único para poder capturar clics en el código Java.
+         - android:orderInCategory: indica el orden con el que aparece entre varios ítems.
+         - android:title: el texto que se mostrará (usando un recurso string).
+         - app:showAsAction="never": indica que **no se mostrará como ícono en la Toolbar**, sino solo en el menú desplegable.
+
+         🧠 Antes, para crear menús se hacía todo en Java con `onCreateOptionsMenu()` creando los ítems uno por uno,
+         lo cual era largo, propenso a errores y poco claro visualmente. Con XML es más limpio y mantenible. -->
+
     <item
         android:id="@+id/action_sair"
         android:orderInCategory="100"
         android:title="Sair"
         app:showAsAction="never" />
+
+    <!-- 🔸 Este ítem es otra opción de menú, con el texto "Sair" (que significa "Salir" en portugués).
+         - Funciona igual que el anterior, y podría usarse, por ejemplo, para cerrar sesión o salir de la app.
+         - Este texto no está en un recurso de strings, sino escrito directamente. Lo ideal sería moverlo a strings.xml
+           para soportar traducciones automáticamente (i18n). -->
+
 </menu>
+
+<!--📌 ¿Dónde y cómo se usa este archivo?
+Este menú puede cargarse en una Activity o Fragment con el método onCreateOptionsMenu(Menu menu) usando getMenuInflater().inflate(R.menu.nombre_del_menu, menu);.
+
+También puede asignarse directamente a una Toolbar.-->

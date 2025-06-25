@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@android:color/holo_blue_dark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Operaciones Matemáticas"
+                android:textColor="@android:color/background_light"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <!--match_parent: Hace que la vista ocupe todo el espacio
+        disponible de su contenedor en la dirección especificada
+        (ancho o alto).
+        wrap_content: Hace que la vista se ajuste al tamaño de su
+         contenido, ocupando solo el espacio necesario para
+         mostrarlo.-->
+
+            <ImageView
+                android:id="@+id/imagen"
+                android:layout_width="273dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                app:srcCompat="@drawable/logo" />
+
+            <EditText
+                android:id="@+id/campo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Ingrese el primer numero"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColorHint="@android:color/holo_blue_bright"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:hint="Ingrese el segundo numero"
+                android:inputType="numberDecimal"
+                android:textColorHint="@android:color/holo_blue_bright"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textAlignment="center"
+                android:id="@+id/campo2"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:rowCount="1">
+
+                <Button
+                    android:id="@+id/suma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:text="+"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"/>
+
+                <Button
+                    android:id="@+id/resta"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:text="-"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"/>
+
+                <Button
+                    android:id="@+id/multi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:text="*"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"/>
+
+                <Button
+                    android:id="@+id/divi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:text="/"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"/>
+
+            </GridLayout>
+
+            <!--android:layout_width="0dp" y
+            android:layout_columnWeight="1": Se establece el ancho
+            de los botones en 0dp para que el GridLayout pueda
+            calcular el ancho en función del peso de las columnas.
+            android:layout_columnWeight="1" asegura que cada botón
+            ocupe el mismo espacio proporcional dentro de
+            su columna, distribuyendo el ancho disponible de
+            manera equitativa.-->
+
+            <TextView
+                android:id="@+id/resultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_blue_light"
+                android:hint="Resultado"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/light_gray"
+                android:textColorHint="@color/light_gray"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/borrarRes"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                android:text="Borrar resultado"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+
+

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TareaFoodAppActividades</string>
+    <string name="avatar">avatar</string>
+    <string name="contrase_a">Contraseña:</string>
+    <string name="incio_de_sesion">Inciar Sesion</string>
+    <string name="Registro">Registrar</string>
+</resources>

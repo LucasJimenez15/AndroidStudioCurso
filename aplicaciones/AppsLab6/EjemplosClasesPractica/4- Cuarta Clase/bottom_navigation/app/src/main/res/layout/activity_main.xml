@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--El CoordinatorLayout en Android es un contenedor avanzado que
+permite coordinar interacciones entre vistas, como esconder un botón
+flotante (FAB) al hacer scroll en un RecyclerView.
+
+Sus principales características incluyen:
+
+Coordinación de comportamientos entre vistas: Permite que vistas como
+un FAB respondan a eventos de desplazamiento.
+
+Soporte para "Behaviors": Puedes asignar comportamientos predefinidos
+o personalizados a las vistas para controlar su interacción,
+como sincronizar un RecyclerView con un AppBarLayout.
+
+Compatibilidad con vistas avanzadas: Usado con vistas como
+AppBarLayout, CollapsingToolbarLayout, FloatingActionButton,
+entre otras, para lograr animaciones y desplazamientos fluidos.
+
+Ejemplo: Un FAB puede esconderse al desplazar una lista
+usando el CoordinatorLayout. Se utiliza cuando necesitas que múltiples
+vistas reaccionen entre sí o implementen comportamientos complejos
+de diseño sin manejar manualmente eventos de scroll o interacción-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/denim"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- el BottomAppBar y el BottomNavigationView son dos
+    componentes de la interfaz de usuario en Android que tienen
+    diferencias importantes en su propósito y comportamiento.
+    Aunque ambos se colocan en la parte inferior de la pantalla, se
+    utilizan en contextos diferentes.
+
+    El BottomAppBar es una barra de herramientas (toolbar) que se
+    sitúa en la parte inferior de la pantalla, y que puede contener
+    un botón de acción flotante (FloatingActionButton) y otros
+    elementos de acción (como botones de menú). Es parte de la
+    evolución del diseño de barras de herramientas que se utiliza
+    para ofrecer un acceso más fácil y rápido a las acciones
+    principales de la aplicación.
+
+
+    El BottomNavigationView por otro lado, es un componente
+     de navegación que se coloca en la parte inferior de la pantalla y
+      está diseñado específicamente para cambiar entre diferentes
+      secciones de una aplicación mediante iconos y texto. Es más
+      adecuado para aplicaciones con secciones principales que el
+      usuario puede alternar fácilmente, como redes sociales, tiendas
+      o aplicaciones de mensajería.
+
+      Cuándo usar un FAB:
+      Cuando tienes una acción primaria que los usuarios deben
+      realizar con frecuencia en una pantalla, como añadir un nuevo
+      elemento, iniciar una tarea o lanzar una función clave.-->
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomAppBar"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="20dp">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottomNavigationView"
+            android:layout_marginEnd="20dp"
+            app:labelVisibilityMode="labeled"
+            android:background="@android:color/transparent"
+            app:menu="@menu/bottom_menu"/>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <!-- El componente <com.google.android.material.floatingaction
+    button.FloatingActionButton> en Android es parte de la biblioteca
+    de Material Design y representa un botón de acción flotante,
+    comúnmente conocido como FAB (Floating Action Button).
+
+    ¿Qué es un FloatingActionButton?
+    El FloatingActionButton es un botón redondo o circular que suele
+    estar colocado en la parte inferior de la pantalla (generalmente
+    flotando sobre el contenido), y que tiene la función de ejecutar
+    una acción principal dentro de una pantalla o sección de la
+    aplicación. Es un componente visual muy utilizado para acciones
+    que son frecuentes o importantes dentro de la interfaz de usuario.
+    -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_add_24"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="40dp"
+        app:tint="@color/denim"
+        tools:ignore="SpeakableTextPresentCheck" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

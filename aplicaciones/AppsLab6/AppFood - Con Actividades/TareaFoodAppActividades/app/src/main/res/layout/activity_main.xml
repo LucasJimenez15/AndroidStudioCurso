@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tituloLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="30dp"
+                android:text="@string/incio_de_sesion"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="362dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="30dp"
+                android:hint="Email"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ingresoEmailLogin"
+                    android:layout_width="327dp"
+                    android:layout_height="53dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="50dp"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="40dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="361dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="30dp"
+                android:hint="Password"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:endIconMode="password_toggle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ingresoPasswordLogin"
+                    android:layout_width="327dp"
+                    android:layout_height="53dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="50dp"
+                    android:inputType="textPassword"
+                    android:paddingStart="40dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Link para olvidar la contraseña -->
+            <TextView
+                android:id="@+id/olvidarPasswordLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:paddingRight="20dp"
+                android:text="¿Olvido su password?"
+                android:textColor="#FF5252"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <!-- Botón de Iniciar Sesión -->
+            <Button
+                android:id="@+id/botonInciarSesionLogin"
+                android:layout_width="279dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#FF5252"
+                android:text="INICIAR SESIÓN"
+                android:textColor="@android:color/white" />
+
+            <!-- Iconos de redes sociales -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <!-- Texto para registrar una nueva cuenta -->
+                <TextView
+                    android:id="@+id/labelRegistrarLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="16dp"
+                    android:text="No tiene una cuenta?"
+                    android:textColor="#FF5252"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/registrarseLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:minHeight="48dp"
+                    android:text="Registrarse."
+                    android:textColor="@color/gray"
+                    android:textSize="16sp" />
+
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icFacebookLogin"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Facebook"
+                    android:src="@drawable/ic_facebook" />
+
+                <ImageView
+                    android:id="@+id/icTwitterLogin"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Twitter"
+                    android:src="@drawable/ic_twitter" />
+
+                <ImageView
+                    android:id="@+id/icGoogleLogin"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Google"
+                    android:src="@drawable/ic_google" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

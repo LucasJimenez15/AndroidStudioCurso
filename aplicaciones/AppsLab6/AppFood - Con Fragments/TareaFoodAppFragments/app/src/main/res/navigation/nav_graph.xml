@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentInicioSesion">
+
+    <fragment
+        android:id="@+id/fragmentOlvidoSuPassword"
+        android:name="com.example.constraintlayout.FragmentOlvidoSuPassword"
+        android:label="fragment_olvido_su_password"
+        tools:layout="@layout/fragment_olvido_su_password" >
+        <action
+            android:id="@+id/action_fragmentOlvidoSuPassword_to_fragmentInicioSesion"
+            app:destination="@id/fragmentInicioSesion" />
+        <action
+            android:id="@+id/action_fragmentOlvidoSuPassword_to_fragmentVistaOlvidoPassword"
+            app:destination="@id/fragmentVistaOlvidoPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPerfil"
+        android:name="com.example.constraintlayout.FragmentPerfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_fragmentPerfil_to_fragmentPaginaHome"
+            app:destination="@id/fragmentPaginaHome" />
+        <action
+            android:id="@+id/action_fragmentPerfil_self"
+            app:destination="@id/fragmentPerfil" />
+        <action
+            android:id="@+id/action_fragmentPerfil_to_fragmentEditarPerfil"
+            app:destination="@id/fragmentEditarPerfil" />
+        <action
+            android:id="@+id/action_fragmentPerfil_to_fragmentInicioSesion"
+            app:destination="@id/fragmentInicioSesion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentVistaOlvidoPassword"
+        android:name="com.example.constraintlayout.FragmentVistaOlvidoPassword"
+        android:label="fragment_vista_olvido_password"
+        tools:layout="@layout/fragment_vista_olvido_password" >
+        <action
+            android:id="@+id/action_fragmentVistaOlvidoPassword_to_fragmentInicioSesion"
+            app:destination="@id/fragmentInicioSesion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPaginaHome"
+        android:name="com.example.constraintlayout.FragmentPaginaHome"
+        android:label="fragment_pagina_home"
+        tools:layout="@layout/fragment_pagina_home" >
+        <action
+            android:id="@+id/action_fragmentPaginaHome_to_fragmentPerfil"
+            app:destination="@id/fragmentPerfil" />
+        <action
+            android:id="@+id/action_fragmentPaginaHome_self"
+            app:destination="@id/fragmentPaginaHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentInicioSesion"
+        android:name="com.example.constraintlayout.FragmentInicioSesion"
+        android:label="fragment_inicio_sesion"
+        tools:layout="@layout/fragment_inicio_sesion" >
+        <action
+            android:id="@+id/action_fragmentInicioSesion_to_fragmentPaginaHome"
+            app:destination="@id/fragmentPaginaHome" />
+        <action
+            android:id="@+id/action_fragmentInicioSesion_to_fragmentRegistro"
+            app:destination="@id/fragmentRegistro" />
+        <action
+            android:id="@+id/action_fragmentInicioSesion_to_fragmentOlvidoSuPassword"
+            app:destination="@id/fragmentOlvidoSuPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegistro"
+        android:name="com.example.constraintlayout.FragmentRegistro"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/action_fragmentRegistro_to_fragmentInicioSesion"
+            app:destination="@id/fragmentInicioSesion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditarPerfil"
+        android:name="com.example.constraintlayout.FragmentEditarPerfil"
+        android:label="fragment_editar_perfil"
+        tools:layout="@layout/fragment_editar_perfil" >
+        <action
+            android:id="@+id/action_fragmentEditarPerfil_to_fragmentPerfil"
+            app:destination="@id/fragmentPerfil" />
+    </fragment>
+
+</navigation>

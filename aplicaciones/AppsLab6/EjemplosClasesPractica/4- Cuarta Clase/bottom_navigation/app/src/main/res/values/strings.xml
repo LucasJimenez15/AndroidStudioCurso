@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BottomNavigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">Inicio</string>
+    <string name="shorts_fragment">Cortos</string>
+    <string name="suscriptions_fragment">Suscripciones</string>
+    <string name="library_fragment">Libreria</string>
+</resources>

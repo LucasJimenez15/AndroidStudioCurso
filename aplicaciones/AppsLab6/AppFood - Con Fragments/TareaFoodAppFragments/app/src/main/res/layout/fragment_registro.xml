@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentRegistro">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <TextView
+            android:id="@+id/tituloRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/Registro"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingresoNombreRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Nombre"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="391dp"
+                android:layout_height="53dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:inputType="textPersonName"
+                android:paddingStart="30dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingresoEmailRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Email"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="391dp"
+                android:layout_height="53dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:inputType="textEmailAddress"
+                android:paddingStart="30dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingresoPasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundMode="outline"
+            android:hint="Password"
+            app:endIconMode="password_toggle"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="389dp"
+                android:layout_height="53dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:inputType="textPassword"
+                android:paddingStart="30dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingresoPasswordSegundaVezRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundMode="outline"
+            android:hint="Confirmar Password"
+            app:endIconMode="password_toggle"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="389dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:inputType="textPassword"
+                android:paddingStart="30dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Botón de Iniciar Sesión -->
+        <Button
+            android:id="@+id/botonRegistrar"
+            android:layout_width="279dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="#FF5252"
+            android:layout_marginBottom="20dp"
+            android:text="REGISTRAR"
+            android:textColor="@android:color/white"/>
+
+
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <!-- Texto para registrar una nueva cuenta -->
+            <TextView
+                android:id="@+id/labeliniciarRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="16dp"
+                android:text="Ya tiene una cuenta?"
+                android:textColor="#FF5252"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/iniciarSecionbotonRegistro"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:text="Iniciar Secion."
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+        </GridLayout>
+
+        <!-- Iconos de redes sociales -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/icFacebookRegistro"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_facebook"
+                android:contentDescription="Facebook"
+                android:layout_marginEnd="16dp"/>
+
+            <ImageView
+                android:id="@+id/icTwitterRegistro"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_twitter"
+                android:contentDescription="Twitter"
+                android:layout_marginEnd="16dp"/>
+
+            <ImageView
+                android:id="@+id/icGoogleRegistro"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_google"
+                android:contentDescription="Google"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

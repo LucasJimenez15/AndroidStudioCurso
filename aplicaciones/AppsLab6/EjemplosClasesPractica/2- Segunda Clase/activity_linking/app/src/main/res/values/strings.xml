@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">activity_linking</string>
+    <string name="txtPrimeraActividad">Actividad Principal</string>
+    <string name="btnConvocarOtraActividad">Convocar Otra Actividad</string>
+    <string name="txtOtraActividad">Estamos En Otra Actividad</string>
+    <string name="btnActividadPrincipal">Retornar a la Actividad Principal</string>
+</resources>

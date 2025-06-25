@@ -1,0 +1,6 @@
+para que este andara lo que se hizo fue una migracion o por asi 
+decirlo copiar cada parte del proyecto cada clase .java desde la 
+estructura de un proyecto tipo Room , es decir empezamos desde la ca
+pa mas baja que es la de los repositorios o datos en memoria, pasando
+por el view model y hasta la vista, Agregando las respectivas depende
+ncias a medida que se iba agregando dichas clases 
